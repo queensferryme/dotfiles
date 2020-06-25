@@ -1,0 +1,1 @@
+This repository contains my configuration files (a.k.a dotfiles) in GNU/Linux. Read this [post](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html) on how to manage your dotfiles using GNU Stow with ease!
