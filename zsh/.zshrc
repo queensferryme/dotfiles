@@ -76,6 +76,7 @@ plugins=(
     #docker-compose
     extract
     git
+    golang
     pip
     poetry
     pyenv
