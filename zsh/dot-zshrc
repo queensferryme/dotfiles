@@ -26,7 +26,8 @@ zinit for \
 	OMZ::lib/key-bindings.zsh \
 	OMZ::lib/theme-and-appearance.zsh \
 	OMZ::plugins/git/git.plugin.zsh
-zinit ice wait lucid; zinit snippet OMZ::plugins/colorize/colorize.plugin.zsh
+zinit ice wait lucid atload"alias cat=ccat; alias less=cless"
+zinit snippet OMZ::plugins/colorize/colorize.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/extract/extract.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
@@ -37,6 +38,9 @@ zinit ice wait lucid; zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
 #
 ### User Configuration
 
+# colorize
+ZSH_COLORIZE_STYLE=native
+ZSH_COLORIZE_TOOL=chroma
 # n 
 export N_PREFIX="$HOME/.n"
 export PATH="$N_PREFIX/bin:$PATH"
