@@ -76,7 +76,7 @@ SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_USER_SHOW="always"
 # wsl2 
 export HOST_IP=$(cat /etc/resolv.conf | tail -n 1 | sed -e "s/nameserver //g")
-alias prci="sudo sed -i \"s/(?<=^socks5).*(?=7890)$/ $HOST_IP /g\" /etc/proxychains4.conf"
+alias prci="sudo sed -i \"$ s/.*/socks5 $HOST_IP 7890/g\" /etc/proxychains4.conf"
 
 ### User Configuration END
 
