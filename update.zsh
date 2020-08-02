@@ -21,7 +21,7 @@ poetry completions zsh > $HOME/.zinit/completions/_poetry
 
 # Upgrade Pyenv
 echo '========== Upgrading Pyenv =========='
-cd $(pyenv root)
+cd $HOME/.pyenv
 git pull
 
 # Upgrade Zinit
