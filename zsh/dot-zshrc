@@ -31,8 +31,6 @@ zinit snippet OMZ::plugins/colorize/colorize.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/extract/extract.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
-# completions (ran for once interactively)
-# zinit creinstall ~/.dotfiles/python/.config/pypoetry
 
 ### Zinit END
 #
@@ -46,6 +44,8 @@ export N_PREFIX="$HOME/.n"
 export PATH="$N_PREFIX/bin:$PATH"
 # poetry
 export PATH="$HOME/.poetry/bin:$PATH"
+# pyenv
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 # shorthands
 alias cls="clear"
 alias e="explorer.exe"
