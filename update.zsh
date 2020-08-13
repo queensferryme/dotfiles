@@ -1,6 +1,5 @@
 #!/usr/bin/zsh
 
-HOME="/home/queensferry"
 source $HOME/.zshrc
 
 export http_proxy="http://$HOST_IP:7890"

@@ -9,8 +9,6 @@ if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
 fi
 
 source "$HOME/.zinit/bin/zinit.zsh"
-#autoload -Uz _zinit
-#(( ${+_comps} )) && _comps[zinit]=_zinit
 # plugins
 zinit light denysdovhan/spaceship-prompt
 zinit ice wait lucid atload"zicompinit"
@@ -37,7 +35,7 @@ zinit ice wait lucid; zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
 ### User Configuration
 
 # colorize
-ZSH_COLORIZE_STYLE=native
+#ZSH_COLORIZE_STYLE=native
 ZSH_COLORIZE_TOOL=chroma
 # n 
 export N_PREFIX="$HOME/.n"
@@ -48,10 +46,10 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 # shorthands
 alias cls="clear"
-alias e="explorer.exe"
-alias ed="explorer.exe ."
 alias prch="proxychains"
-alias stow="stow --dotfiles"
+if command -v stow &>/dev/null && `which stow` -V | grep 2.3 &>/dev/null; then
+	alias stow="stow --dotfiles"
+fi
 # spaceship
 SPACESHIP_PROMPT_ORDER=(
 	user
@@ -74,9 +72,14 @@ SPACESHIP_HOST_PREFIX="@ "
 SPACESHIP_HOST_SHOW="always"
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_USER_SHOW="always"
+SPACESHIP_USER_COLOR_ROOT="yellow"
 # wsl2 
-export HOST_IP=$(cat /etc/resolv.conf | tail -n 1 | sed -e "s/nameserver //g")
-alias prci="sudo sed -i \"$ s/.*/socks5 $HOST_IP 7890/g\" /etc/proxychains4.conf"
+if [[ $(grep microsoft /proc/version) ]]; then
+	export HOST_IP=$(cat /etc/resolv.conf | tail -n 1 | sed -e "s/nameserver //g")
+	alias e="explorer.exe"
+	alias ed="explorer.exe ."
+	alias prci="sudo sed -i \"$ s/.*/socks5 $HOST_IP 7890/g\" /etc/proxychains4.conf"
+fi
 
 ### User Configuration END
 
