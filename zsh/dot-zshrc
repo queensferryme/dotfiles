@@ -34,23 +34,38 @@ zinit ice wait lucid; zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
 #
 ### User Configuration
 
-# colorize
+## Colorize
 ZSH_COLORIZE_STYLE=vim
 ZSH_COLORIZE_TOOL=chroma
-# n 
+## Conda
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/root/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/root/.miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/root/.miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/root/.miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+## N
 export N_PREFIX="$HOME/.n"
 export PATH="$N_PREFIX/bin:$PATH"
-# poetry
+## Poetry
 export PATH="$HOME/.poetry/bin:$PATH"
-# pyenv
+## Pyenv
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-# shorthands
+## Shorthands
 alias cls="clear"
 alias prch="proxychains"
 if command -v stow &>/dev/null && `which stow` -V | grep 2.3 &>/dev/null; then
 	alias stow="stow --dotfiles"
 fi
-# spaceship
+## Spaceship-Prompt
 SPACESHIP_PROMPT_ORDER=(
 	user
 	host
@@ -73,7 +88,7 @@ SPACESHIP_HOST_SHOW="always"
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_USER_SHOW="always"
 SPACESHIP_USER_COLOR_ROOT="yellow"
-# wsl2 
+## WSL2 
 if [[ $(grep microsoft /proc/version) ]]; then
 	export HOST_IP=$(cat /etc/resolv.conf | tail -n 1 | sed -e "s/nameserver //g")
 	alias e="explorer.exe"
@@ -82,4 +97,6 @@ if [[ $(grep microsoft /proc/version) ]]; then
 fi
 
 ### User Configuration END
+
+
 
