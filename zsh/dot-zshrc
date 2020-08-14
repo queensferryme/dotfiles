@@ -35,7 +35,7 @@ zinit ice wait lucid; zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
 ### User Configuration
 
 # colorize
-#ZSH_COLORIZE_STYLE=native
+ZSH_COLORIZE_STYLE=vim
 ZSH_COLORIZE_TOOL=chroma
 # n 
 export N_PREFIX="$HOME/.n"
