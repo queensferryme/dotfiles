@@ -11,8 +11,9 @@ fi
 source "$HOME/.zinit/bin/zinit.zsh"
 # plugins
 zinit light denysdovhan/spaceship-prompt
-zinit ice wait lucid atload"zicompinit"
-zinit light zdharma/fast-syntax-highlighting
+zinit ice wait lucid; zinit light zdharma/fast-syntax-highlighting
+zinit ice wait lucid atload"zicompinit; zicdreplay" blockf;
+zinit light zsh-users/zsh-completions
 # directory snippets
 zinit ice svn wait lucid; zinit snippet OMZ::plugins/pip
 zinit ice svn wait lucid; zinit snippet OMZ::plugins/z
@@ -97,6 +98,4 @@ if [[ $(grep microsoft /proc/version) ]]; then
 fi
 
 ### User Configuration END
-
-
 
