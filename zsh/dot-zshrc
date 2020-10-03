@@ -48,9 +48,6 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 ## Shorthands
 alias cls="clear"
 alias prch="proxychains"
-if command -v stow &>/dev/null && `which stow` -V | grep 2.3 &>/dev/null; then
-	alias stow="stow --dotfiles"
-fi
 ## Spaceship-Prompt
 SPACESHIP_PROMPT_ORDER=(
 	user
