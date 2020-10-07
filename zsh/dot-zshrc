@@ -29,7 +29,6 @@ zinit ice wait lucid atload"alias cat=ccat; alias less=cless"
 zinit snippet OMZ::plugins/colorize/colorize.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/extract/extract.plugin.zsh
-zinit ice wait lucid; zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
 
 ### Zinit END
 #
@@ -38,16 +37,23 @@ zinit ice wait lucid; zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
 ## Colorize
 ZSH_COLORIZE_STYLE=vim
 ZSH_COLORIZE_TOOL=chroma
+## Golang
+export PATH="`(go env GOPATH)`/bin:$PATH"
 ## N
 export N_PREFIX="$HOME/.n"
 export PATH="$N_PREFIX/bin:$PATH"
-## Poetry
-export PATH="$HOME/.poetry/bin:$PATH"
+## NeoVim
+alias vim="nvim"
 ## Pyenv
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+## Poetry
+# see https://github.com/python-poetry/poetry/issues/571#issuecomment-470734363
+export PATH="$HOME/.poetry/bin:$PATH"
 ## Shorthands
 alias cls="clear"
-alias prch="proxychains"
+alias prch="proxychains4"
 ## Spaceship-Prompt
 SPACESHIP_PROMPT_ORDER=(
 	user
@@ -73,7 +79,7 @@ SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_USER_SHOW="always"
 SPACESHIP_USER_COLOR_ROOT="yellow"
 ## WSL2 
-if [[ $(grep microsoft /proc/version) ]]; then
+if [[ -f /proc/version && $(grep microsoft /proc/version) ]]; then
 	export HOST_IP=$(cat /etc/resolv.conf | tail -n 1 | sed -e "s/nameserver //g")
 	alias e="explorer.exe"
 	alias ed="explorer.exe ."
