@@ -12,8 +12,7 @@ source "$HOME/.zinit/bin/zinit.zsh"
 # plugins
 zinit light denysdovhan/spaceship-prompt
 zinit ice wait lucid; zinit light zdharma/fast-syntax-highlighting
-zinit ice wait lucid atload"zicompinit; zicdreplay" blockf;
-zinit light zsh-users/zsh-completions
+zinit ice wait lucid atload"zicompinit; zicdreplay" blockf; zinit light zsh-users/zsh-completions
 # directory snippets
 zinit ice svn wait lucid; zinit snippet OMZ::plugins/pip
 zinit ice svn wait lucid; zinit snippet OMZ::plugins/z
@@ -24,9 +23,9 @@ zinit for \
 	OMZ::lib/history.zsh \
 	OMZ::lib/key-bindings.zsh \
 	OMZ::lib/theme-and-appearance.zsh \
-	OMZ::plugins/git/git.plugin.zsh
-zinit ice wait lucid atload"alias cat=ccat; alias less=cless"
-zinit snippet OMZ::plugins/colorize/colorize.plugin.zsh
+	OMZ::plugins/git/git.plugin.zsh \
+    OMZ::plugins/pyenv/pyenv.plugin.zsh
+zinit ice wait lucid atload"alias cat=ccat; alias less=cless"; zinit snippet OMZ::plugins/colorize/colorize.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/extract/extract.plugin.zsh
 
@@ -44,10 +43,6 @@ export N_PREFIX="$HOME/.n"
 export PATH="$N_PREFIX/bin:$PATH"
 ## NeoVim
 alias vim="nvim"
-## Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 ## Poetry
 # see https://github.com/python-poetry/poetry/issues/571#issuecomment-470734363
 export PATH="$HOME/.poetry/bin:$PATH"
