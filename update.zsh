@@ -1,33 +1,33 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 
 source $HOME/.zshrc
 
-export http_proxy="http://$HOST_IP:7890"
-export https_proxy="http://$HOST_IP:7890"
-git config --global http.proxy $http_proxy
-git config --global https.proxy $https_proxy
-
 # Upgrade N
-echo '========== Upgrading N =========='
-yes | n-update
-n lts
-n prune
+if [ -d $HOME/.n ]; then
+    echo '========== Upgrading N =========='
+    yes | n-update
+    n lts
+    n prune
+fi
 
 # Upgrade Poetry
-echo '========== Upgrading Poetry =========='
-poetry self update
-poetry completions zsh > $HOME/.zinit/completions/_poetry
+if [ -d $HOME/.poetry ]; then
+    echo '========== Upgrading Poetry =========='
+    poetry self update
+    poetry completions zsh > $HOME/.zinit/completions/_poetry
+fi
 
 # Upgrade Pyenv
-echo '========== Upgrading Pyenv =========='
-cd $HOME/.pyenv
-git pull
+if [ -d $HOME/.pyenv ]; then
+    echo '========== Upgrading Pyenv =========='
+    cd $HOME/.pyenv
+    git pull
+fi
 
 # Upgrade Zinit
-echo '========== Upgrading Zinit =========='
-zinit update
+if [ -d $HOME/.zinit ]; then
+    echo '========== Upgrading Zinit =========='
+    zinit update
+fi
 
-git config --global --unset http.proxy
-git config --global --unset https.proxy
-echo `date` 'Cron has successfully upgraded softwares!'
-
+echo `date` 'Update successful!'
