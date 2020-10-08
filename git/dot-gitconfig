@@ -4,3 +4,5 @@
 	signingkey = D8E203EBF2785629C541BCF0EA84C8EA0712C41D
 [commit]
 	gpgsign = true
+[pull]
+	rebase = false
