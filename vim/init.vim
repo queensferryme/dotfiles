@@ -39,7 +39,6 @@ highlight Normal ctermbg=NONE guibg=NONE
 
 " Code Editing
 "" buffer
-" Tab navigation like Firefox.
 inoremap <C-S-t> <Esc>:bprevious<CR>i
 inoremap <C-t>   <Esc>:bnext<CR>i
 nnoremap <C-S-t> :bprevious<CR>
@@ -54,26 +53,21 @@ autocmd FileType cpp setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 " Code Viewing
 set cursorline
+set ignorecase
+set mouse=a
 set number
 set showmatch
+set smartcase
 set wrap!
-"" indentation
+"" indentLine
 let g:indentLine_fileTypeExclude=['help']
-
-" File Explorer
+"" netrw
 let g:netrw_banner=0
 let g:netrw_browse_split=0
 let g:netrw_liststyle=3
 let g:netrw_winsize=25
 inoremap <C-n> <Esc>:25Lexplore<CR>
 nnoremap <C-n> :25Lexplore<CR>
-
-" Miscellaneous
-set mouse=a
-
-" Search
-set ignorecase
-set smartcase
 
 " Terminal
 execute 'highlight FloatermBorder ctermfg=' . onedark#GetColors().green.cterm
