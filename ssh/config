@@ -5,3 +5,8 @@ Host aliyun
     Hostname 120.55.55.125
     User root
 
+Host github.com
+   HostName github.com
+   User git
+   ProxyCommand nc -v -x 127.0.0.1:7890 %h %p
+
