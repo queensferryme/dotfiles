@@ -48,6 +48,8 @@ alias vim="nvim"
 ## Poetry
 # see https://github.com/python-poetry/poetry/issues/571#issuecomment-470734363
 export PATH="$HOME/.poetry/bin:$PATH"
+## Rust
+export PATH="$HOME/.cargo/bin:$PATH"
 ## Shorthands
 alias cls="clear"
 alias prch="proxychains4"
