@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
-    Plug 'joshdick/onedark.vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'rakr/vim-one'
     Plug 'vim-airline/vim-airline'
     Plug 'voldikss/vim-floaterm'
     Plug 'Yggdroot/indentLine'
@@ -29,12 +29,12 @@ let g:airline_mode_map = {
     \ ''     : 'V',
     \ }
 let g:airline_section_z="%l:%c %p%%"
-let g:airline_theme='onedark'
+let g:airline_theme='one'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 "" colorscheme
-let g:onedark_hide_endofbuffer=1
-colorscheme onedark
+colorscheme one
+set background=light
 highlight Normal ctermbg=NONE guibg=NONE
 
 " Code Editing
@@ -70,7 +70,7 @@ inoremap <C-n> <Esc>:25Lexplore<CR>
 nnoremap <C-n> :25Lexplore<CR>
 
 " Terminal
-execute 'highlight FloatermBorder ctermfg=' . onedark#GetColors().green.cterm
+execute 'highlight FloatermBorder ctermfg=23'
 let g:floaterm_keymap_new='<F7>'
 let g:floaterm_keymap_next='<F8>'
 let g:floaterm_keymap_prev='<F9>'
