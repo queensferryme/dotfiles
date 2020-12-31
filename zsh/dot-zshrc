@@ -40,6 +40,8 @@ ZSH_COLORIZE_STYLE=vim
 ZSH_COLORIZE_TOOL=chroma
 ## Golang
 export PATH="`(go env GOPATH)`/bin:$PATH"
+## Java
+export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
 ## N
 export N_PREFIX="$HOME/.n"
 export PATH="$N_PREFIX/bin:$PATH"
