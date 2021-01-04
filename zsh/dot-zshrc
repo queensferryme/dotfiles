@@ -40,8 +40,6 @@ ZSH_COLORIZE_STYLE=vim
 ZSH_COLORIZE_TOOL=chroma
 ## Golang
 export PATH="`(go env GOPATH)`/bin:$PATH"
-## Java
-export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
 ## N
 export N_PREFIX="$HOME/.n"
 export PATH="$N_PREFIX/bin:$PATH"
@@ -50,8 +48,6 @@ alias vim="nvim"
 ## Poetry
 # see https://github.com/python-poetry/poetry/issues/571#issuecomment-470734363
 export PATH="$HOME/.poetry/bin:$PATH"
-## Rust
-export PATH="$HOME/.cargo/bin:$PATH"
 ## Shorthands
 alias cls="clear"
 alias prch="proxychains4"
