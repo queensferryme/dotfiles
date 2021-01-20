@@ -11,6 +11,7 @@ fi
 source "$HOME/.zinit/bin/zinit.zsh"
 # plugins
 zinit light denysdovhan/spaceship-prompt
+zinit ice wait lucid; zinit light SukkaW/zsh-osx-autoproxy
 zinit ice wait lucid; zinit light zdharma/fast-syntax-highlighting
 zinit ice wait lucid atload"zicompinit; zicdreplay" blockf; zinit light zsh-users/zsh-completions
 # directory snippets
