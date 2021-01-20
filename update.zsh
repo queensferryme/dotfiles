@@ -2,18 +2,12 @@
 
 source $HOME/.zshrc
 
-# Configure proxy server
-PROXY="http://127.0.0.1:7890"
-export http_proxy=$PROXY
-export https_proxy=$PROXY
-git config --global http.proxy $PROXY
-git config --global https.proxy $PROXY
-
 # Upgrade Brew
 if [[ `command -v brew` != "" ]]; then
     echo '========== Upgrading Brew =========='
     brew update
     brew upgrade
+    brew cleanup
 fi
 
 # Upgrade N
@@ -43,6 +37,8 @@ if [ -d $HOME/.cargo ]; then
     echo '========== Upgrading Rust =========='
     rustup self update
     rustup update
+    rustup completions zsh cargo > $HOME/.zinit/completions/_cargo
+    rustup completions zsh rustup > $HOME/.zinit/completions/_rustup
 fi
 
 # Upgrade Zinit
@@ -52,8 +48,4 @@ if [ -d $HOME/.zinit ]; then
 fi
 
 # End
-unset http_proxy
-unset https_proxy
-git config --global --unset http.proxy
-git config --global --unset https.proxy
 echo `date` 'Update successful!'
