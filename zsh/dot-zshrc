@@ -34,6 +34,7 @@ zinit ice wait lucid; zinit snippet OMZ::plugins/extract/extract.plugin.zsh
 #
 ### User Configuration
 
+
 ## Brew
 export HOMEBREW_NO_AUTO_UPDATE=1
 ## Colorize
@@ -57,7 +58,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ## Shorthands
 alias cls="clear"
 alias prch="proxychains4"
-## Spaceship-Prompt
+## Spaceship Prompt
 SPACESHIP_PROMPT_ORDER=(
 	user
 	host
@@ -81,5 +82,10 @@ SPACESHIP_HOST_SHOW="always"
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_USER_SHOW="always"
 SPACESHIP_USER_COLOR_ROOT="yellow"
+## ZSH
+chpwd()
+    if [ -e $PWD/venv ]; then
+        source $PWD/venv/bin/activate
+    fi
 
 ### User Configuration END
