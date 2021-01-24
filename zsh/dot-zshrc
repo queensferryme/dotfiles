@@ -40,6 +40,8 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 ## Colorize
 ZSH_COLORIZE_STYLE=vim
 ZSH_COLORIZE_TOOL=chroma
+## Direnv
+eval "$(direnv hook zsh)"
 ## Golang
 export GOPATH="`(go env GOPATH)`"
 export PATH="$GOPATH/bin:$PATH"
@@ -82,10 +84,5 @@ SPACESHIP_HOST_SHOW="always"
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_USER_SHOW="always"
 SPACESHIP_USER_COLOR_ROOT="yellow"
-## ZSH
-chpwd()
-    if [ -e $PWD/venv ]; then
-        source $PWD/venv/bin/activate
-    fi
 
 ### User Configuration END
