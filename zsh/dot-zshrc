@@ -23,17 +23,16 @@ zinit for \
 	OMZ::lib/directories.zsh \
 	OMZ::lib/history.zsh \
 	OMZ::lib/key-bindings.zsh \
-	OMZ::lib/theme-and-appearance.zsh \
-	OMZ::plugins/git/git.plugin.zsh \
-    OMZ::plugins/pyenv/pyenv.plugin.zsh
+	OMZ::lib/theme-and-appearance.zsh
 zinit ice wait lucid atload"alias cat=ccat; alias less=cless"; zinit snippet OMZ::plugins/colorize/colorize.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/extract/extract.plugin.zsh
+zinit ice wait lucid; zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit ice wait lucid; zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
 
 ### Zinit END
 #
 ### User Configuration
-
 
 ## Brew
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -66,23 +65,19 @@ SPACESHIP_PROMPT_ORDER=(
 	host
 	dir
 	git
-	node
 	golang
+	node
 	pyenv
+	rust
 	line_sep
 	jobs
 	exit_code
 	char
 )
-SPACESHIP_DIR_LOCK_SYMBOL=" 🔒"
-SPACESHIP_DIR_TRUNC=0
-SPACESHIP_DIR_TRUNC_REPO=false
 SPACESHIP_EXIT_CODE_SHOW=true
-SPACESHIP_GOLANG_SYMBOL="Go "
 SPACESHIP_HOST_PREFIX="@ "
-SPACESHIP_HOST_SHOW="always"
 SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_RUST_SYMBOL="🦀 "
 SPACESHIP_USER_SHOW="always"
-SPACESHIP_USER_COLOR_ROOT="yellow"
 
 ### User Configuration END
