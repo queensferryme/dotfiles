@@ -19,9 +19,8 @@ zinit ice svn wait lucid; zinit snippet OMZ::plugins/pip
 zinit ice svn wait lucid; zinit snippet OMZ::plugins/z
 # single-file snippets
 zinit for \
-	OMZ::lib/completion.zsh \
+    OMZ::lib/completion.zsh \
 	OMZ::lib/directories.zsh \
-	OMZ::lib/history.zsh \
 	OMZ::lib/key-bindings.zsh \
 	OMZ::lib/theme-and-appearance.zsh
 zinit ice wait lucid atload"alias cat=ccat; alias less=cless"; zinit snippet OMZ::plugins/colorize/colorize.plugin.zsh
