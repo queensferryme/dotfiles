@@ -44,7 +44,8 @@ fi
 # Upgrade Zinit
 if [ -d $HOME/.zinit ]; then
     echo '========== Upgrading Zinit =========='
-    zinit update
+    zinit self-update
+    zinit update --all
 fi
 
 # End

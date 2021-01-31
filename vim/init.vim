@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'rakr/vim-one'
     Plug 'vim-airline/vim-airline'
     Plug 'voldikss/vim-floaterm'
+    Plug 'wakatime/vim-wakatime'
     Plug 'Yggdroot/indentLine'
 call plug#end()
 
