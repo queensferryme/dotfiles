@@ -33,8 +33,6 @@ zinit ice wait lucid; zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
 #
 ### User Configuration
 
-## Brew
-export HOMEBREW_NO_AUTO_UPDATE=1
 ## Colorize
 ZSH_COLORIZE_STYLE=vim
 ZSH_COLORIZE_TOOL=chroma
