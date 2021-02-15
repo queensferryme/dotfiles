@@ -13,7 +13,8 @@ source "$HOME/.zinit/bin/zinit.zsh"
 zinit light denysdovhan/spaceship-prompt
 zinit ice wait lucid; zinit light SukkaW/zsh-osx-autoproxy
 zinit ice wait lucid; zinit light zdharma/fast-syntax-highlighting
-zinit ice wait lucid atload"zicompinit; zicdreplay" blockf; zinit light zsh-users/zsh-completions
+zinit ice wait lucid atload"zicompinit;zicdreplay" blockf
+zinit light zsh-users/zsh-completions
 # directory snippets
 zinit ice svn wait lucid; zinit snippet OMZ::plugins/pip
 zinit ice svn wait lucid; zinit snippet OMZ::plugins/z
@@ -46,21 +47,17 @@ zinit snippet https://github.com/docker/compose/blob/master/contrib/completion/z
 ## Golang
 export GOPATH="`(go env GOPATH)`"
 export PATH="$GOPATH/bin:$PATH"
-## Java
-export PATH="/usr/local/opt/java/bin:$PATH"
 ## N
 export N_PREFIX="$HOME/.n"
 export PATH="$N_PREFIX/bin:$PATH"
 ## NeoVim
 alias vim="nvim"
 ## Poetry
-# see https://github.com/python-poetry/poetry/issues/571#issuecomment-470734363
 export PATH="$HOME/.poetry/bin:$PATH"
 ## Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 ## Shorthands
 alias cls="clear"
-alias prch="proxychains4"
 ## Spaceship Prompt
 SPACESHIP_PROMPT_ORDER=(
 	user
