@@ -10,7 +10,6 @@ fi
 
 source "$HOME/.zinit/bin/zinit.zsh"
 # plugins
-zinit light denysdovhan/spaceship-prompt
 zinit ice wait lucid; zinit light SukkaW/zsh-osx-autoproxy
 zinit ice wait lucid; zinit light zdharma/fast-syntax-highlighting
 zinit ice wait lucid atload"zicompinit;zicdreplay" blockf
@@ -20,7 +19,6 @@ zinit ice svn wait lucid; zinit snippet OMZ::plugins/pip
 zinit ice svn wait lucid; zinit snippet OMZ::plugins/z
 # single-file snippets
 zinit for \
-    OMZ::lib/completion.zsh \
 	OMZ::lib/directories.zsh \
 	OMZ::lib/key-bindings.zsh \
 	OMZ::lib/theme-and-appearance.zsh
@@ -52,32 +50,15 @@ export N_PREFIX="$HOME/.n"
 export PATH="$N_PREFIX/bin:$PATH"
 ## NeoVim
 alias vim="nvim"
+## Others
+alias cls="clear"
+bindkey -v
 ## Poetry
 export PATH="$HOME/.poetry/bin:$PATH"
 ## Rust
 export PATH="$HOME/.cargo/bin:$PATH"
-## Shorthands
-alias cls="clear"
-## Spaceship Prompt
-SPACESHIP_PROMPT_ORDER=(
-	user
-	host
-	dir
-	git
-	golang
-	node
-	pyenv
-	rust
-	line_sep
-	jobs
-	exit_code
-	char
-)
-SPACESHIP_EXIT_CODE_SHOW=true
-SPACESHIP_HOST_PREFIX="@ "
-SPACESHIP_PROMPT_ADD_NEWLINE=false
-SPACESHIP_RUST_SYMBOL="🦀 "
-SPACESHIP_USER_SHOW="always"
+## Starship
+eval "$(starship init zsh)"
 
 ### User Configuration END
 
