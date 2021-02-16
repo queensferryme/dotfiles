@@ -9,23 +9,26 @@ if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
 fi
 
 source "$HOME/.zinit/bin/zinit.zsh"
-# plugin
+# plugins
 zinit ice wait silent; zinit light SukkaW/zsh-osx-autoproxy
 zinit ice wait lucid; zinit light zdharma/fast-syntax-highlighting
 zinit ice wait lucid atload"zicompinit; zicdreplay" blockf; zinit light zsh-users/zsh-completions
-# omz library
+# omz libraries
 zinit for \
-    OMZL::completion.zsh \
+	OMZL::completion.zsh \
 	OMZL::directories.zsh \
 	OMZL::key-bindings.zsh \
 	OMZL::theme-and-appearance.zsh
-# omz plugin
+# omz plugins
 zinit ice wait lucid atload"alias cat=ccat; alias less=cless"; zinit snippet OMZP::colorize/colorize.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZP::colored-man-pages/colored-man-pages.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZP::extract/extract.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZP::git/git.plugin.zsh
-zinit ice wait lucid atload"source <(pip completion --zsh)"; zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
+zinit ice wait lucid atload"source <(python -m pip completion --zsh)"; zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
 zinit ice svn wait lucid; zinit snippet OMZ::plugins/z
+# others
+zinit ice wait lucid as"completion"; zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+zinit ice wait lucid as"completion"; zinit snippet https://github.com/docker/compose/blob/master/contrib/completion/zsh/_docker-compose
 
 ### Zinit END
 #
@@ -36,11 +39,6 @@ ZSH_COLORIZE_STYLE=vim
 ZSH_COLORIZE_TOOL=chroma
 ## Direnv
 eval "$(direnv hook zsh)"
-## Docker
-zinit ice wait lucid as"completion"
-zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
-zinit ice wait lucid as"completion"
-zinit snippet https://github.com/docker/compose/blob/master/contrib/completion/zsh/_docker-compose
 ## Golang
 export GOPATH="`(go env GOPATH)`"
 export PATH="$GOPATH/bin:$PATH"
@@ -52,6 +50,7 @@ alias vim="nvim"
 ## Others
 alias cls="clear"
 bindkey -v
+fpath+=~/.zfunc
 ## Poetry
 export PATH="$HOME/.poetry/bin:$PATH"
 ## Rust
