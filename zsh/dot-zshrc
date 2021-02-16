@@ -12,21 +12,22 @@ source "$HOME/.zinit/bin/zinit.zsh"
 # plugins
 zinit ice wait lucid; zinit light SukkaW/zsh-osx-autoproxy
 zinit ice wait lucid; zinit light zdharma/fast-syntax-highlighting
-zinit ice wait lucid atload"zicompinit;zicdreplay" blockf
+zinit ice wait lucid atload"zicompinit; zicdreplay" blockf
 zinit light zsh-users/zsh-completions
 # directory snippets
-zinit ice svn wait lucid; zinit snippet OMZ::plugins/pip
 zinit ice svn wait lucid; zinit snippet OMZ::plugins/z
 # single-file snippets
 zinit for \
 	OMZ::lib/directories.zsh \
 	OMZ::lib/key-bindings.zsh \
 	OMZ::lib/theme-and-appearance.zsh
-zinit ice wait lucid atload"alias cat=ccat; alias less=cless"; zinit snippet OMZ::plugins/colorize/colorize.plugin.zsh
+zinit ice wait lucid atload"alias cat=ccat; alias less=cless"
+zinit snippet OMZ::plugins/colorize/colorize.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/extract/extract.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZ::plugins/git/git.plugin.zsh
-zinit ice wait lucid; zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
+zinit ice wait lucid atload"source <(pip completion --zsh)"
+zinit snippet OMZ::plugins/pyenv/pyenv.plugin.zsh
 
 ### Zinit END
 #
