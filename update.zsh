@@ -2,12 +2,12 @@
 
 source $HOME/.zshrc
 
-# Upgrade Brew
-if [[ `command -v brew` != "" ]]; then
-    echo '========== Upgrading Brew =========='
-    brew update
-    brew upgrade
-    brew cleanup
+# Upgrade MacPorts
+if [ -d $HOME/.macports ]; then
+    echo '========== Upgrading MacPorts =========='
+    sudo port selfupdate
+    sudo port upgrade outdated
+    sudo port clean --all installed
 fi
 
 # Upgrade N
