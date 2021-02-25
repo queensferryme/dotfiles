@@ -69,16 +69,30 @@ let g:airline_mode_map = {
     \ 'V'      : 'V',
     \ ''     : 'V',
     \ }
+call airline#parts#define_function('floaterm', 'FloatermInfo')
+let g:airline_section_y=airline#section#create_right(['floaterm','ffenc'])
 let g:airline_section_z="%l:%c %p%%"
 let g:airline_theme='one'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 
 "" voldikss/vim-floaterm
+autocmd TermOpen * setlocal nonumber nocursorline
+autocmd TermOpen * nnoremap <buffer><LeftRelease> <LeftRelease>i
+let g:floaterm_autoclose=1
+let g:floaterm_height=0.3
 let g:floaterm_keymap_new='<F7>'
 let g:floaterm_keymap_next='<F8>'
 let g:floaterm_keymap_prev='<F9>'
 let g:floaterm_keymap_toggle='<F10>'
+let g:floaterm_wintype='split'
+function! FloatermInfo() abort
+  let buffers = floaterm#buflist#gather()
+  let cnt = len(buffers)
+  let cur = floaterm#buflist#curr()
+  let idx = index(buffers, cur) + 1
+  return printf('term[%s/%s]', idx, cnt)
+endfunction
 
 "" Yggdroot/indentLine
 let g:indentLine_fileTypeExclude=['help']
