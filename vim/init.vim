@@ -2,11 +2,18 @@ call plug#begin('~/.vim/plugged')
     Plug 'elzr/vim-json'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'rakr/vim-one'
+    Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'vim-airline/vim-airline'
     Plug 'voldikss/vim-floaterm'
     Plug 'wakatime/vim-wakatime'
     Plug 'Yggdroot/indentLine'
 call plug#end()
+
+"" buffers
+inoremap <C-S-t> <Esc>:bprevious<CR>i
+inoremap <C-t>   <Esc>:bnext<CR>i
+nnoremap <C-S-t> :bprevious<CR>
+nnoremap <C-t>   :bnext<CR>
 
 "" elzr/vim-json
 let g:vim_json_syntax_conceal=0
@@ -26,14 +33,6 @@ set scrolloff=3
 set showmatch
 set wrap!
 
-"" netrw
-let g:netrw_banner=0
-let g:netrw_browse_split=0
-let g:netrw_liststyle=3
-let g:netrw_winsize=25
-inoremap <C-n> <Esc>:25Lexplore<CR>
-nnoremap <C-n> :25Lexplore<CR>
-
 "" rakr/vim-one
 colorscheme one
 set background=light
@@ -45,11 +44,16 @@ set ignorecase
 set incsearch
 set smartcase
 
-"" shortcut
-inoremap <C-S-t> <Esc>:bprevious<CR>i
-inoremap <C-t>   <Esc>:bnext<CR>i
-nnoremap <C-S-t> :bprevious<CR>
-nnoremap <C-t>   :bnext<CR>
+"" Shougo/defx.nvim'
+let g:python3_host_prog='/usr/bin/python3'
+inoremap <C-n> <Esc>:Defx<CR>
+nnoremap <C-n> :Defx<CR>
+call defx#custom#option('_', {
+      \ 'sort': 'extension:filename',
+      \ 'split': 'vertical',
+      \ 'toggle': 1,
+      \ 'winwidth': 40,
+      \ })
 
 "" vim-airline/vim-airline
 let g:airline_mode_map = {
@@ -99,4 +103,5 @@ endfunction
 
 "" Yggdroot/indentLine
 let g:indentLine_fileTypeExclude=['help']
+autocmd TermOpen * IndentLinesDisable
 
