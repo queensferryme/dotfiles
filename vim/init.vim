@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+    Plug 'elzr/vim-json'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'rakr/vim-one'
     Plug 'vim-airline/vim-airline'
@@ -6,6 +7,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'wakatime/vim-wakatime'
     Plug 'Yggdroot/indentLine'
 call plug#end()
+
+"" elzr/vim-json
+let g:vim_json_syntax_conceal=0
 
 "" indent
 set autoindent
