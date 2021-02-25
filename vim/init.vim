@@ -14,14 +14,15 @@ let g:vim_json_syntax_conceal=0
 "" indent
 set autoindent
 set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=4 softtabstop=4 tabstop=4
+autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 "" miscellany
+set backspace=indent,eol,start
 set cursorline
 set mouse=a
 set number
+set scrolloff=3
 set showmatch
 set wrap!
 
@@ -39,7 +40,9 @@ set background=light
 highlight Normal ctermbg=NONE guibg=NONE
 
 "" search
+set hlsearch
 set ignorecase
+set incsearch
 set smartcase
 
 "" shortcut
