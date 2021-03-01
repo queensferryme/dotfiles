@@ -25,7 +25,10 @@ zinit ice wait lucid atload"alias cat=ccat; alias less=cless"; zinit snippet OMZ
 zinit ice wait lucid; zinit snippet OMZP::colored-man-pages/colored-man-pages.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZP::extract/extract.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZP::git/git.plugin.zsh
-zinit ice wait lucid atload"source <(python -m pip completion --zsh)"; zinit snippet OMZP::pyenv/pyenv.plugin.zsh
+if [ -d $HOME/.pyenv ]; then
+    zinit ice wait lucid atload"source <(python -m pip completion --zsh)"
+    zinit snippet OMZP::pyenv/pyenv.plugin.zsh
+fi
 # others
 zinit ice wait lucid as"completion"; zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 zinit ice wait lucid as"completion"; zinit snippet https://github.com/docker/compose/blob/master/contrib/completion/zsh/_docker-compose
@@ -38,13 +41,19 @@ zinit ice wait lucid as"completion"; zinit snippet https://github.com/docker/com
 ZSH_COLORIZE_STYLE=vim
 ZSH_COLORIZE_TOOL=chroma
 ## Direnv
-eval "$(direnv hook zsh)"
+if [[ `command -v direnv` != "" ]]; then
+    eval "$(direnv hook zsh)"
+fi
 ## Golang
-export GOPATH="`(go env GOPATH)`"
-export PATH="$GOPATH/bin:$PATH"
+if [[ `command -v go` != "" ]]; then
+    export GOPATH="`(go env GOPATH)`"
+    export PATH="$GOPATH/bin:$PATH"
+fi
 ## N
-export N_PREFIX="$HOME/.n"
-export PATH="$N_PREFIX/bin:$PATH"
+if [ -d $HOME/.n ]; then
+    export N_PREFIX="$HOME/.n"
+    export PATH="$N_PREFIX/bin:$PATH"
+fi
 ## NeoVim
 alias vim="nvim"
 ## Others

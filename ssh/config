@@ -5,6 +5,10 @@ Host aliyun
     Hostname 120.55.55.125
     User root
 
+Host droplet
+    Hostname 206.189.80.47
+    User root
+
 Host github.com
    HostName github.com
    User git
