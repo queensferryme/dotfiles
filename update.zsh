@@ -8,6 +8,7 @@ if [ -d $HOME/.macports ]; then
     sudo port selfupdate
     sudo port upgrade outdated
     sudo port clean --all installed
+    sudo port uninstall inactive
 fi
 
 # Upgrade N
