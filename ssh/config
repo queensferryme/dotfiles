@@ -8,6 +8,7 @@ Host aliyun
 Host droplet
     Hostname 206.189.80.47
     User root
+    ProxyCommand nc -v -x 127.0.0.1:7890 %h %p
 
 Host github.com
    HostName github.com
