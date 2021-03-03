@@ -44,15 +44,32 @@ set incsearch
 set smartcase
 
 "" Shougo/defx.nvim'
+autocmd FileType defx call s:defx_setup()
+autocmd FileType defx IndentLinesDisable
 let g:python3_host_prog='/usr/bin/python3'
 inoremap <C-n> <Esc>:Defx<CR>
 nnoremap <C-n> :Defx<CR>
 call defx#custom#option('_', {
+      \ 'resume': 1,
+      \ 'root_marker': '≡ ',
       \ 'sort': 'extension:filename',
       \ 'split': 'vertical',
       \ 'toggle': 1,
-      \ 'winwidth': 40,
+      \ 'winwidth': 30,
       \ })
+function! s:defx_setup() abort
+    setlocal nonumber
+    nnoremap <silent><buffer><expr> <CR>
+        \ defx#is_directory() ?
+        \ defx#do_action('open_tree', 'toggle') :
+        \ defx#do_action('drop')
+    nnoremap <silent><buffer><expr> .
+        \ defx#do_action('toggle_ignored_files')
+    nnoremap <silent><buffer><expr> ..
+        \ defx#do_action('open_directory', '..')
+    nnoremap <silent><buffer><expr> cd
+        \ defx#do_action('open_directory')
+endfunction
 
 "" vim-airline/vim-airline
 let g:airline_mode_map = {
