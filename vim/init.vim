@@ -26,7 +26,6 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 "" miscellany
 set backspace=indent,eol,start
-set cursorline
 set mouse=a
 set number
 set scrolloff=3
@@ -84,7 +83,7 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
 
 "" voldikss/vim-floaterm
-autocmd TermOpen * setlocal nonumber nocursorline
+autocmd TermOpen * setlocal nonumber
 autocmd TermOpen * nnoremap <buffer><LeftRelease> <LeftRelease>i
 let g:floaterm_autoclose=1
 let g:floaterm_height=0.3
