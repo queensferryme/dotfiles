@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
     Plug 'elzr/vim-json'
+    Plug 'kristijanhusak/defx-icons'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'rakr/vim-one'
     Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -17,6 +18,11 @@ nnoremap <C-t>   :bnext<CR>
 
 "" elzr/vim-json
 let g:vim_json_syntax_conceal=0
+let g:defx_icons_root_opened_tree_icon=''
+let g:defx_icons_nested_opened_tree_icon=''
+
+"" kristijanhusak/defx-icons
+let g:defx_icons_enable_syntax_highlight=0
 
 "" indent
 set autoindent
@@ -50,6 +56,7 @@ let g:python3_host_prog='/usr/bin/python3'
 inoremap <C-n> <Esc>:Defx<CR>
 nnoremap <C-n> :Defx<CR>
 call defx#custom#option('_', {
+      \ 'columns': 'space:indent:icons:filename:type',
       \ 'resume': 1,
       \ 'root_marker': '≡ ',
       \ 'sort': 'extension:filename',
