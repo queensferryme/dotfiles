@@ -11,18 +11,18 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 "" buffers
-inoremap <C-S-t> <Esc>:bprevious<CR>i
-inoremap <C-t>   <Esc>:bnext<CR>i
-nnoremap <C-S-t> :bprevious<CR>
-nnoremap <C-t>   :bnext<CR>
+inoremap <C-t>   <Esc>:bn<CR>i
+inoremap <C-w>   <Esc>:bp\|bd#<CR>i
+nnoremap <C-t>   :bn<CR>
+nnoremap <C-w>   :bp\|bd#<CR>
 
 "" elzr/vim-json
 let g:vim_json_syntax_conceal=0
-let g:defx_icons_root_opened_tree_icon=''
-let g:defx_icons_nested_opened_tree_icon=''
 
 "" kristijanhusak/defx-icons
 let g:defx_icons_enable_syntax_highlight=0
+let g:defx_icons_nested_opened_tree_icon=''
+let g:defx_icons_root_opened_tree_ion=''
 
 "" indent
 set autoindent
