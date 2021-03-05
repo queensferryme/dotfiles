@@ -51,7 +51,6 @@ set smartcase
 
 "" Shougo/defx.nvim'
 autocmd FileType defx call s:defx_setup()
-autocmd FileType defx IndentLinesDisable
 let g:python3_host_prog='/usr/bin/python3'
 inoremap <C-n> <Esc>:Defx<CR>
 nnoremap <C-n> :Defx<CR>
@@ -76,6 +75,10 @@ function! s:defx_setup() abort
         \ defx#do_action('open_directory', '..')
     nnoremap <silent><buffer><expr> cd
         \ defx#do_action('open_directory')
+    nnoremap <silent><buffer><expr> rm
+        \ defx#do_action('remove')
+    nnoremap <silent><buffer><expr> rn
+        \ defx#do_action('rename')
 endfunction
 
 "" vim-airline/vim-airline
@@ -125,6 +128,6 @@ function! FloatermInfo() abort
 endfunction
 
 "" Yggdroot/indentLine
-let g:indentLine_fileTypeExclude=['help']
+let g:indentLine_fileTypeExclude=['defx', 'help']
 autocmd TermOpen * IndentLinesDisable
 
