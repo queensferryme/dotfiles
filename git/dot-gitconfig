@@ -1,7 +1,7 @@
 [user]
 	email = queensferry.me@gmail.com
 	name = Queensferry
-	signingkey = D8E203EBF2785629C541BCF0EA84C8EA0712C41D
+	signingkey = E6D59A73449EB620EBE2CF5685F6177EE060F458
 [commit]
 	gpgsign = true
 [pull]
