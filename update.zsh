@@ -23,7 +23,7 @@ fi
 if [ -d $HOME/.poetry ]; then
     echo '========== Upgrading Poetry =========='
     poetry self update
-    poetry completions zsh > $HOME/.zfunc/_poetry
+    poetry completions zsh > $HOME/.zinit/completions/_poetry
 fi
 
 # Upgrade Pyenv

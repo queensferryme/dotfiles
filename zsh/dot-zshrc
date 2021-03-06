@@ -59,7 +59,6 @@ alias vim="nvim"
 ## Others
 alias cls="clear"
 bindkey -v
-fpath+=~/.zfunc
 ## Poetry
 export PATH="$HOME/.poetry/bin:$PATH"
 ## Rust
