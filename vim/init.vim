@@ -22,7 +22,7 @@ let g:vim_json_syntax_conceal=0
 "" kristijanhusak/defx-icons
 let g:defx_icons_enable_syntax_highlight=0
 let g:defx_icons_nested_opened_tree_icon=''
-let g:defx_icons_root_opened_tree_ion=''
+let g:defx_icons_root_opened_tree_icon=''
 
 "" indent
 set autoindent
@@ -50,20 +50,20 @@ set incsearch
 set smartcase
 
 "" Shougo/defx.nvim'
-autocmd FileType defx call s:defx_setup()
+autocmd FileType defx call DefxSetup()
 let g:python3_host_prog='/usr/bin/python3'
 inoremap <C-n> <Esc>:Defx<CR>
 nnoremap <C-n> :Defx<CR>
 call defx#custom#option('_', {
-      \ 'columns': 'space:indent:icons:filename:type',
-      \ 'resume': 1,
-      \ 'root_marker': '≡ ',
-      \ 'sort': 'extension:filename',
-      \ 'split': 'vertical',
-      \ 'toggle': 1,
-      \ 'winwidth': 30,
-      \ })
-function! s:defx_setup() abort
+    \ 'columns': 'space:indent:icons:filename:type',
+    \ 'resume': 1,
+    \ 'root_marker': '≡ ',
+    \ 'sort': 'extension:filename',
+    \ 'split': 'vertical',
+    \ 'toggle': 1,
+    \ 'winwidth': 30,
+    \ })
+function! DefxSetup() abort
     setlocal nonumber
     nnoremap <silent><buffer><expr> <CR>
         \ defx#is_directory() ?
@@ -103,8 +103,8 @@ let g:airline_mode_map = {
     \ ''     : 'V',
     \ }
 call airline#parts#define_function('floaterm', 'FloatermInfo')
-let g:airline_section_y=airline#section#create_right(['floaterm','ffenc'])
-let g:airline_section_z="%l:%c %p%%"
+let g:airline_section_x=airline#section#create_right(['floaterm', 'filetype'])
+let g:airline_section_z='%l:%c %p%%'
 let g:airline_theme='one'
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemod=':t'
@@ -116,15 +116,14 @@ let g:floaterm_autoclose=1
 let g:floaterm_height=0.3
 let g:floaterm_keymap_new='<F7>'
 let g:floaterm_keymap_next='<F8>'
-let g:floaterm_keymap_prev='<F9>'
 let g:floaterm_keymap_toggle='<F10>'
 let g:floaterm_wintype='split'
 function! FloatermInfo() abort
-  let buffers = floaterm#buflist#gather()
-  let cnt = len(buffers)
-  let cur = floaterm#buflist#curr()
-  let idx = index(buffers, cur) + 1
-  return printf('term[%s/%s]', idx, cnt)
+    let buffers = floaterm#buflist#gather()
+    let cnt = len(buffers)
+    let cur = floaterm#buflist#curr()
+    let idx = index(buffers, cur) + 1
+    return cnt ==? 0 ? '' : printf('term[%s/%s]', idx, cnt)
 endfunction
 
 "" Yggdroot/indentLine
