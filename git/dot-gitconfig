@@ -1,10 +1,14 @@
+[commit]
+	gpgsign = true
+[core]
+	editor = nvim
+	pager = delta --light
+[delta]
+	line-number = true
+	side-by-side = true
+[pull]
+	rebase = false
 [user]
 	email = queensferry.me@gmail.com
 	name = Queensferry
 	signingkey = E6D59A73449EB620EBE2CF5685F6177EE060F458
-[commit]
-	gpgsign = true
-[pull]
-	rebase = false
-[core]
-	editor = nvim
