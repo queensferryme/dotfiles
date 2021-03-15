@@ -52,8 +52,8 @@ set smartcase
 "" Shougo/defx.nvim'
 autocmd FileType defx call DefxSetup()
 let g:python3_host_prog='/usr/bin/python3'
-inoremap <C-n> <Esc>:Defx<CR>
-nnoremap <C-n> :Defx<CR>
+inoremap <C-n> <Esc>:execute ':Defx -winwidth=' . winwidth(0) / 5<CR>
+nnoremap <C-n> :execute ':Defx -winwidth=' . winwidth(0) / 5<CR>
 call defx#custom#option('_', {
     \ 'columns': 'space:indent:icons:filename:type',
     \ 'resume': 1,
@@ -61,7 +61,6 @@ call defx#custom#option('_', {
     \ 'sort': 'extension:filename',
     \ 'split': 'vertical',
     \ 'toggle': 1,
-    \ 'winwidth': 30,
     \ })
 function! DefxSetup() abort
     setlocal nonumber
