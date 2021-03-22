@@ -50,8 +50,8 @@ set smartcase
 "" Shougo/defx.nvim'
 autocmd FileType defx call DefxSetup()
 let g:python3_host_prog='/usr/bin/python3'
-inoremap <C-n> <Esc>:execute ':Defx -winwidth=' . winwidth(0) / 5<CR>
-nnoremap <C-n> :execute ':Defx -winwidth=' . winwidth(0) / 5<CR>
+inoremap <C-n> <Esc>:execute ':Defx -winwidth=' . DefxWinwidth()<CR>
+nnoremap <C-n> :execute ':Defx -winwidth=' . DefxWinwidth()<CR>
 call defx#custom#option('_', {
     \ 'columns': 'space:indent:icons:filename:type',
     \ 'resume': 1,
@@ -76,6 +76,11 @@ function! DefxSetup() abort
         \ defx#do_action('remove')
     nnoremap <silent><buffer><expr> rn
         \ defx#do_action('rename')
+endfunction
+function! DefxWinwidth() abort
+    let winwidth = winwidth(0)
+    let ratio = winwidth > 120 ? 5 : 4
+    return printf("%s", winwidth / ratio)
 endfunction
 
 "" vim-airline/vim-airline
