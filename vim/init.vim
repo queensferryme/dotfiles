@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+    Plug 'airblade/vim-gitgutter'
     Plug 'elzr/vim-json'
     Plug 'kristijanhusak/defx-icons'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -9,6 +10,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'wakatime/vim-wakatime'
     Plug 'Yggdroot/indentLine'
 call plug#end()
+
+"" airblade/vim-gitgutter
+autocmd FileType * highlight clear SignColumn
+let g:gitgutter_sign_added='▍+'
+let g:gitgutter_sign_modified='▍±'
+let g:gitgutter_sign_modified_removed='▍⨱'
+let g:gitgutter_sign_removed='▍⨯'
+let g:gitgutter_sign_removed_above_and_below = '▍⨯'
+let g:gitgutter_sign_removed_first_line='▍⨯'
+set updatetime=100
 
 "" buffers
 inoremap <C-t>   <Esc>:bn<CR>i
