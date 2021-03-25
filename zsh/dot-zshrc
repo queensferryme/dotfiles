@@ -16,10 +16,10 @@ zinit ice wait lucid atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay"; zi
 zinit ice wait lucid blockf; zinit light zsh-users/zsh-completions
 # omz libraries
 zinit for \
-	OMZL::completion.zsh \
-	OMZL::directories.zsh \
-	OMZL::key-bindings.zsh \
-	OMZL::theme-and-appearance.zsh
+    OMZL::completion.zsh \
+    OMZL::directories.zsh \
+    OMZL::key-bindings.zsh \
+    OMZL::theme-and-appearance.zsh
 # omz plugins
 zinit ice wait lucid atload"alias cat=ccat; alias less=cless"; zinit snippet OMZP::colorize/colorize.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZP::colored-man-pages/colored-man-pages.plugin.zsh
