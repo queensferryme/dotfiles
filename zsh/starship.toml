@@ -5,6 +5,9 @@ success_symbol = "[➜](bold green)"
 error_symbol = "[✗](bold red)"
 vicmd_symbol = "[v](bold green)"
 
+[nodejs]
+symbol = "⬢ "
+
 [package]
 disabled = true
 
