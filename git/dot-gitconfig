@@ -2,10 +2,11 @@
 	gpgsign = true
 [core]
 	editor = nvim
-	pager = delta --light
+    pager = delta --light --keep-plus-minus-markers
 [delta]
-	line-number = true
-	side-by-side = true
+    features = line-numbers
+    hunk-header-style = syntax
+    hunk-header-decoration-style = blue ul
 [pull]
 	rebase = false
 [user]
