@@ -19,6 +19,11 @@ if [ -d $HOME/.n ]; then
     n prune
 fi
 
+# Upgrade NVim
+if [ $(command -v nvim) != "" ]; then
+    nvim -c ":PlugUpdate | :PlugUpgrade | quitall"
+fi
+
 # Upgrade Poetry
 if [ -d $HOME/.poetry ]; then
     echo '========== Upgrading Poetry =========='
