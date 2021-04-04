@@ -21,7 +21,6 @@ zinit for \
     OMZL::key-bindings.zsh \
     OMZL::theme-and-appearance.zsh
 # omz plugins
-zinit ice wait lucid; zinit snippet OMZP::colorize/colorize.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZP::colored-man-pages/colored-man-pages.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZP::extract/extract.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZP::git/git.plugin.zsh
@@ -37,9 +36,8 @@ zinit ice wait lucid as"completion"; zinit snippet https://github.com/docker/com
 #
 ### User Configuration
 
-## Colorize
-ZSH_COLORIZE_STYLE=vim
-ZSH_COLORIZE_TOOL=chroma
+## Bat
+export BAT_THEME=GitHub
 ## Direnv
 if [[ `command -v direnv` != "" ]]; then
     eval "$(direnv hook zsh)"
