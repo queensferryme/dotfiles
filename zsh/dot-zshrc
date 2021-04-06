@@ -31,6 +31,8 @@ fi
 # others
 zinit ice wait lucid as"completion"; zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 zinit ice wait lucid as"completion"; zinit snippet https://github.com/docker/compose/blob/master/contrib/completion/zsh/_docker-compose
+zinit ice from"gh-r" as"program" ver"nightly" atclone"ln -s nvim-osx64/bin/nvim nvim" bpick"*macos*"
+zinit load neovim/neovim
 
 ### Zinit END
 #
