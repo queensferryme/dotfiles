@@ -39,7 +39,7 @@ zinit load neovim/neovim
 ### User Configuration
 
 ## Bat
-export BAT_THEME=GitHub
+export BAT_THEME=OneHalfLight
 ## Direnv
 if [[ `command -v direnv` != "" ]]; then
     eval "$(direnv hook zsh)"
