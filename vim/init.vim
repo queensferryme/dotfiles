@@ -7,4 +7,5 @@ call plug#end()
 
 source ~/.dotfiles/vim/appearance.vim
 source ~/.dotfiles/vim/indent.vim
+source ~/.dotfiles/vim/misc.vim
 
