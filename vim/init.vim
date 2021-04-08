@@ -11,8 +11,8 @@ call plug#end()
 
 
 runtime appearance.vim
-runtime buffer-line.vim
+runtime buffer.vim
 runtime indent.vim
 runtime misc.vim
-runtime status-line.vim
+runtime status.vim
 
