@@ -13,6 +13,7 @@ call plug#end()
 runtime appearance.vim
 runtime buffer.vim
 runtime indent.vim
+runtime mapping.vim
 runtime misc.vim
 runtime status.vim
 
