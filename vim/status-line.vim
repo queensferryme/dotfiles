@@ -19,6 +19,10 @@ let g:lightline.component_visible_condition = {
     \ 'fileencoding': '&fenc!=&enc && &fenc!=#""',
     \ 'filetype': '&ft!=#""',
     \ }
+let g:lightline.enable = {
+    \ 'statusline': 1,
+    \ 'tabline': 0,
+    \ }
 let g:lightline.separator = {
     \ 'left': '',
     \ 'right': '',
