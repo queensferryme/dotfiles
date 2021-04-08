@@ -13,7 +13,7 @@ local colors = {}
 colors.black  = vim.g.terminal_color_0
 colors.blue   = vim.g.terminal_color_4
 colors.green  = vim.g.terminal_color_2
-colors.grey   = '#EEEEEE'
+colors.grey   = '#DDDDDD'
 colors.purple = vim.g.terminal_color_5
 colors.red    = vim.g.terminal_color_1
 colors.yellow = vim.g.terminal_color_3
@@ -23,8 +23,8 @@ colors.bg     = 'transparent'
 colors.fg     = vim.g.terminal_color_foreground
 
 
-local text_icon = file.define_file_icon()
-text_icon['text'] = { colors.black, '' }
+local txt_icon = file.define_file_icon()
+txt_icon['txt'] = { colors.black, '' }
 
 
 function LeftHalfCircleProvider()
@@ -97,7 +97,7 @@ line.section.left[5] = {
 line.section.left[6] = {
     GitBranch = {
         provider = function ()
-            return "  " .. "" .. vcs.get_git_branch()
+            return "  " .. "" .. (vcs.get_git_branch() or "")
         end,
         condition = condition.check_git_workspace,
         highlight = {colors.purple, colors.bg},

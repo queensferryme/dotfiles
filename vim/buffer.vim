@@ -5,7 +5,7 @@ local bg = '#DDDDDD'
 
 require"bufferline".setup{
     options = {
-        modified_icon = "●",
+        modified_icon = "●"
     },
     highlights = {
         background = {
@@ -19,8 +19,8 @@ require"bufferline".setup{
             guibg = bg
         },
         indicator_selected = {
-            guifg = bg,
-            guibg = bg
+            guibg = 'transparent',
+            guifg = vim.g.terminal_color_2
         }
     }
 }
