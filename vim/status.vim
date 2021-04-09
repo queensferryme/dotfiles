@@ -23,10 +23,6 @@ colors.bg     = "transparent"
 colors.fg     = vim.g.terminal_color_foreground
 
 
-local txt_icon = file.define_file_icon()
-txt_icon["txt"] = { colors.black, "" }
-
-
 function LeftHalfCircleProvider()
     return ""
 end
@@ -60,24 +56,16 @@ line.section.left[2] = {
 }
 
 line.section.left[3] = {
-    FileIcon = {
-        provider = function ()
-            return "  " .. file.get_file_icon()
-        end,
-        condition = condition.buffer_not_empty,
-        highlight = {file.get_file_icon_color, colors.grey}
-    }
-}
-
-line.section.left[4] = {
     FileName = {
-        provider = file.get_current_file_name,
+        provider = function ()
+            return "  " .. file.get_current_file_name()
+        end,
         condition = condition.buffer_not_empty,
         highlight = {colors.fg, colors.grey}
     }
 }
 
-line.section.left[5] = {
+line.section.left[4] = {
     LeftEnd = {
         provider = RightHalfCircleProvider,
         highlight = {
@@ -92,7 +80,7 @@ line.section.left[5] = {
     }
 }
 
-line.section.left[6] = {
+line.section.left[5] = {
     GitBranch = {
         provider = function ()
             return "  " .. "" .. (vcs.get_git_branch() or "")
