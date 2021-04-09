@@ -3,28 +3,28 @@ set noshowmode
 lua << EOF
 local line       = require("galaxyline")
 local condition  = require("galaxyline.condition")
-local buffer     = require('galaxyline.provider_buffer')
+local buffer     = require("galaxyline.provider_buffer")
 local file       = require("galaxyline.provider_fileinfo")
 local vcs        = require("galaxyline.provider_vcs")
-local whitespace = require('galaxyline.provider_whitespace')
+local whitespace = require("galaxyline.provider_whitespace")
 
 
 local colors = {}
 colors.black  = vim.g.terminal_color_0
 colors.blue   = vim.g.terminal_color_4
 colors.green  = vim.g.terminal_color_2
-colors.grey   = '#DDDDDD'
+colors.grey   = "#DDDDDD"
 colors.purple = vim.g.terminal_color_5
 colors.red    = vim.g.terminal_color_1
 colors.yellow = vim.g.terminal_color_3
 colors.cyan   = vim.g.terminal_color_6
 colors.white  = vim.g.terminal_color_7
-colors.bg     = 'transparent'
+colors.bg     = "transparent"
 colors.fg     = vim.g.terminal_color_foreground
 
 
 local txt_icon = file.define_file_icon()
-txt_icon['txt'] = { colors.black, '' }
+txt_icon["txt"] = { colors.black, "" }
 
 
 function LeftHalfCircleProvider()
@@ -49,13 +49,11 @@ line.section.left[2] = {
             local map = {
                 n = "NORMAL",
                 i = "INSERT",
-                c = "COMMAND",
-                V = "VISUAL",
-                [""] = "VISUAL",
                 v = "VISUAL",
-                R = "REPLACE"
+                ["\x16"] = "V-BLOCK",
+                V = "V-LINE"
             }
-            return "  " .. map[vim.fn.mode()] .. " "
+            return "  " .. (map[vim.fn.mode()] or "ERROR") .. " "
         end,
         highlight = {colors.white, colors.green}
     }

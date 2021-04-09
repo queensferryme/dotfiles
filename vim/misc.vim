@@ -1,7 +1,6 @@
 autocmd InsertEnter,InsertLeave * set cul!
 
-language en_US
-
+set autowrite
 set backspace=indent,eol,start
 set encoding=utf-8
 set mouse=a

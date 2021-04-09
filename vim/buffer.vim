@@ -1,7 +1,7 @@
 set termguicolors
 
 lua << EOF
-local bg = '#DDDDDD'
+local bg = "#DDDDDD"
 
 require"bufferline".setup{
     options = {
@@ -19,7 +19,7 @@ require"bufferline".setup{
             guibg = bg
         },
         indicator_selected = {
-            guibg = 'transparent',
+            guibg = "transparent",
             guifg = vim.g.terminal_color_2
         }
     }
