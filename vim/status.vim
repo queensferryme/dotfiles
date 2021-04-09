@@ -58,9 +58,12 @@ line.section.left[2] = {
 line.section.left[3] = {
     FileName = {
         provider = function ()
-            return "  " .. file.get_current_file_name()
+            local filename = file.get_current_file_name()
+            if filename == "" then
+                filename = "[No Name] "
+            end
+            return "  " .. filename
         end,
-        condition = condition.buffer_not_empty,
         highlight = {colors.fg, colors.grey}
     }
 }
@@ -68,15 +71,7 @@ line.section.left[3] = {
 line.section.left[4] = {
     LeftEnd = {
         provider = RightHalfCircleProvider,
-        highlight = {
-            function ()
-                if condition.buffer_not_empty() then
-                    return colors.grey
-                end
-                return colors.green
-            end,
-            colors.bg
-        }
+        highlight = {colors.grey, colors.bg}
     }
 }
 
