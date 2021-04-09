@@ -31,6 +31,27 @@ function RightHalfCircleProvider()
     return ""
 end
 
+function get_mode_color(mode)
+    local color = {
+        i        = colors.blue,
+        n        = colors.green,
+        v        = colors.purple,
+        ["\x16"] = colors.purple,
+        V        = colors.purple
+    }
+    return color[mode] or colors.red
+end
+
+function get_mode_name(mode)
+    local name = {
+        i        = "INSERT",
+        n        = "NORMAL",
+        v        = "VISUAL",
+        ["\x16"] = "V-BLOCK",
+        V        = "V-LINE"
+    }
+    return name[mode] or "UNKOWN"
+end
 
 line.section.left[1] = {
     LeftStart = {
@@ -42,14 +63,10 @@ line.section.left[1] = {
 line.section.left[2] = {
     ViMode = {
         provider = function ()
-            local map = {
-                n = "NORMAL",
-                i = "INSERT",
-                v = "VISUAL",
-                ["\x16"] = "V-BLOCK",
-                V = "V-LINE"
-            }
-            return "  " .. (map[vim.fn.mode()] or "ERROR") .. " "
+            local mode = vim.fn.mode()
+            vim.api.nvim_command("highlight GalaxyLeftStart guifg=" .. get_mode_color(mode))
+            vim.api.nvim_command("highlight GalaxyViMode    guibg=" .. get_mode_color(mode))
+            return "  " .. get_mode_name(mode) .. " "
         end,
         highlight = {colors.white, colors.green}
     }
