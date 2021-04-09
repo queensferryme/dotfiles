@@ -1,7 +1,11 @@
 set termguicolors
 
 lua << EOF
-local bg = "#DDDDDD"
+local colors = {
+    green = vim.g.terminal_color_2,
+    grey = "#DDDDDD",
+    transparent = "transparent"
+}
 
 require"bufferline".setup{
     options = {
@@ -9,18 +13,18 @@ require"bufferline".setup{
     },
     highlights = {
         background = {
-            guibg = bg
+            guibg = colors.grey
         },
         buffer_selected = {
-            guibg = "transparent",
+            guibg = colors.transparent,
             gui = "bold"
         },
         fill = {
-            guibg = bg
+            guibg = colors.grey
         },
         indicator_selected = {
-            guibg = "transparent",
-            guifg = vim.g.terminal_color_2
+            guibg = colors.transparent,
+            guifg = colors.green
         }
     }
 }

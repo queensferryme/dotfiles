@@ -103,7 +103,7 @@ line.section.right[2] = {
         condition = function ()
             return vim.bo.fenc ~= "utf-8"
         end,
-        highlight = {colors.blue, colors.grey}
+        highlight = {colors.cyan, colors.grey}
     }
 }
 
@@ -119,7 +119,7 @@ line.section.right[3] = {
         condition = function ()
             return vim.bo.fileformat ~= "unix"
         end,
-        highlight = {colors.blue, colors.grey},
+        highlight = {colors.cyan, colors.grey},
         separator = " ",
         separator_highlight = {colors.grey, colors.grey}
     }
@@ -129,7 +129,7 @@ line.section.right[4] = {
     FileType = {
         provider = buffer.get_buffer_filetype,
         condition = condition.buffer_not_empty,
-        highlight = {colors.blue, colors.grey},
+        highlight = {colors.cyan, colors.grey},
         separator = " ",
         separator_highlight = {colors.grey, colors.grey}
     }
