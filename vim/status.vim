@@ -1,5 +1,7 @@
 set noshowmode
 
+autocmd VimEnter * autocmd! galaxyline WinLeave
+
 lua << EOF
 local line       = require("galaxyline")
 local condition  = require("galaxyline.condition")
@@ -53,7 +55,31 @@ function get_mode_name(mode)
     return name[mode] or "UNKOWN"
 end
 
-line.short_line_list = {"NvimTree"} -- keeping this table { } as empty will show inactive statuslines
+
+line.short_line_list = {"NvimTree"}
+
+line.section.short_line_left[1] = {
+    ShortLineLeftStart = {
+        provider = LeftHalfCircleProvider,
+        highlight = {colors.green, colors.bg}
+    }
+}
+
+line.section.short_line_left[2] = {
+    ShortLineBufferType = {
+        provider = function ()
+            return "  " .. (buffer.get_buffer_filetype() or "BUFFER") .. " "
+        end,
+        highlight = {colors.white, colors.green}
+    }
+}
+
+line.section.short_line_left[3] = {
+    ShortLineRightStart = {
+        provider = RightHalfCircleProvider,
+        highlight = {colors.green, colors.bg}
+    }
+}
 
 line.section.left[1] = {
     LeftStart = {
