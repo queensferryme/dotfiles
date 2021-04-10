@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'akinsho/nvim-bufferline.lua'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+    Plug 'kyazdani42/nvim-tree.lua'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -17,4 +18,5 @@ runtime indent.vim
 runtime mapping.vim
 runtime misc.vim
 runtime status.vim
+runtime tree.vim
 

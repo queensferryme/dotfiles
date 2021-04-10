@@ -53,6 +53,8 @@ function get_mode_name(mode)
     return name[mode] or "UNKOWN"
 end
 
+line.short_line_list = {"NvimTree"} -- keeping this table { } as empty will show inactive statuslines
+
 line.section.left[1] = {
     LeftStart = {
         provider = LeftHalfCircleProvider,
