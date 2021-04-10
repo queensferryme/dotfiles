@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'romgrk/barbar.nvim'
     Plug 'sonph/onehalf', { 'rtp': 'vim' }
     Plug 'wakatime/vim-wakatime'
