@@ -1,8 +1,11 @@
 let g:coc_global_extensions = [
     \ 'coc-pairs',
     \ 'coc-pyright',
-    \ 'coc-rls'
+    \ 'coc-rust-analyzer'
     \ ]
+
+highlight link CocRustTypeHint Comment
+highlight link CocRustChainingHint Comment
 
 set hidden
 set nobackup
