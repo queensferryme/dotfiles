@@ -178,7 +178,9 @@ line.section.right[4] = {
 line.section.right[5] = {
     LineColumn = {
         provider = function ()
-            return " " .. file.line_column() .. " "
+            local line = vim.fn.line('.')
+            local column = vim.fn.col('.')
+            return string.format(" %1d:%1d ", line, column)
         end,
         highlight = {colors.white, colors.red},
         separator = " ",
