@@ -35,6 +35,7 @@ end
 
 function get_mode_color(mode)
     local color = {
+        c        = colors.yellow,
         i        = colors.blue,
         n        = colors.green,
         v        = colors.purple,
@@ -46,6 +47,7 @@ end
 
 function get_mode_name(mode)
     local name = {
+        c        = "COMMAND",
         i        = "INSERT",
         n        = "NORMAL",
         v        = "VISUAL",
