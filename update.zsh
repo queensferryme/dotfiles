@@ -8,7 +8,12 @@ if [ -d $HOME/.macports ]; then
     sudo port selfupdate
     sudo port upgrade outdated
     sudo port clean --all installed
-    sudo port uninstall inactive
+    if [[ $(port echo inactive) != "" ]]; then
+        sudo port uninstall --follow-dependencies inactive
+    fi
+    if [[ $(port echo leaves) != "" ]]; then
+        sudo port uninstall --follow-dependencies leaves
+    fi
 fi
 
 # Upgrade N
@@ -21,7 +26,8 @@ fi
 
 # Upgrade NVim
 if [ $(command -v nvim) != "" ]; then
-    nvim -c ":PlugUpdate | :PlugUpgrade | quitall"
+    echo '========== Upgrading Neovim =========='
+    nvim +PlugUpgrade +PlugUpdate +CocUpdate +qall
 fi
 
 # Upgrade Poetry
