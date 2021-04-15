@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'romgrk/barbar.nvim'
     Plug 'sonph/onehalf', { 'rtp': 'vim' }
+    Plug 'voldikss/vim-floaterm'
     Plug 'wakatime/vim-wakatime'
 call plug#end()
 

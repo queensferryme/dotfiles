@@ -38,6 +38,7 @@ function get_mode_color(mode)
         c        = colors.yellow,
         i        = colors.blue,
         n        = colors.green,
+        t        = colors.yellow,
         v        = colors.purple,
         ["\x16"] = colors.purple,
         V        = colors.purple
@@ -50,6 +51,7 @@ function get_mode_name(mode)
         c        = "COMMAND",
         i        = "INSERT",
         n        = "NORMAL",
+        t        = "TERMINAL",
         v        = "VISUAL",
         ["\x16"] = "V-BLOCK",
         V        = "V-LINE"
