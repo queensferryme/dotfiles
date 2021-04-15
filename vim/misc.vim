@@ -3,8 +3,10 @@ autocmd InsertEnter,InsertLeave * set cul!
 set autowrite
 set backspace=indent,eol,start
 set encoding=utf-8
+set ignorecase
 set mouse=a
 set scrolloff=3
+set smartcase
 set wrap!
 
 autocmd TermOpen * setlocal nonumber
