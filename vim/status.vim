@@ -60,7 +60,7 @@ function get_mode_name(mode)
 end
 
 
-line.short_line_list = {"NvimTree"}
+line.short_line_list = {"NvimTree", "floaterm"}
 
 line.section.short_line_left[1] = {
     ShortLineLeftStart = {
