@@ -1,15 +1,15 @@
 [commit]
-	gpgsign = true
+    gpgsign = true
 [core]
-	editor = nvim
+    editor = nvim
     pager = delta --light --keep-plus-minus-markers
 [delta]
     features = line-numbers
     hunk-header-style = syntax
     hunk-header-decoration-style = blue ul
 [pull]
-	rebase = false
+    rebase = false
 [user]
-	email = queensferry.me@gmail.com
-	name = Queensferry
-	signingkey = E6D59A73449EB620EBE2CF5685F6177EE060F458
+    email = queensferry.me@gmail.com
+    name = Queensferry
+    signingkey = E6D59A73449EB620EBE2CF5685F6177EE060F458
