@@ -121,10 +121,23 @@ _arguments "${_arguments_options[@]}" \
 ':toolchain -- Toolchain name, such as 'stable', 'nightly', or '1.8.0'. For more information see `rustup help toolchain`:_files' \
 && ret=0
 ;;
+(upgrade)
+_arguments "${_arguments_options[@]}" \
+'--no-self-update[Don'\''t perform self update when running the `rustup update` command]' \
+'--force[Force an update, even if some components are missing]' \
+'--force-non-host[Install toolchains that require an emulator. See https://github.com/rust-lang/rustup/wiki/Non-host-toolchains]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+'::toolchain -- Toolchain name, such as 'stable', 'nightly', or '1.8.0'. For more information see `rustup help toolchain`:_files' \
+&& ret=0
+;;
 (update)
 _arguments "${_arguments_options[@]}" \
 '--no-self-update[Don'\''t perform self update when running the `rustup update` command]' \
 '--force[Force an update, even if some components are missing]' \
+'--force-non-host[Install toolchains that require an emulator. See https://github.com/rust-lang/rustup/wiki/Non-host-toolchains]' \
 '-h[Prints help information]' \
 '--help[Prints help information]' \
 '-V[Prints version information]' \
@@ -687,7 +700,7 @@ _rustup_commands() {
 "install:Update Rust toolchains" \
 "uninstall:Uninstall Rust toolchains" \
 "update:Update Rust toolchains and rustup" \
-"check:Check for updates to Rust toolchains" \
+"check:Check for updates to Rust toolchains and rustup" \
 "default:Set the default toolchain" \
 "toolchain:Modify or query the installed toolchains" \
 "target:Modify a toolchain's supported targets" \
@@ -1124,6 +1137,20 @@ _rustup__update_commands() {
         
     )
     _describe -t commands 'rustup update commands' commands "$@"
+}
+(( $+functions[_rustup__upgrade_commands] )) ||
+_rustup__upgrade_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'rustup upgrade commands' commands "$@"
+}
+(( $+functions[_upgrade_commands] )) ||
+_upgrade_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'upgrade commands' commands "$@"
 }
 (( $+functions[_rustup__self__upgrade-data_commands] )) ||
 _rustup__self__upgrade-data_commands() {
