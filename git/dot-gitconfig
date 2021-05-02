@@ -13,3 +13,5 @@
     email = queensferry.me@gmail.com
     name = Queensferry
     signingkey = E6D59A73449EB620EBE2CF5685F6177EE060F458
+[init]
+	defaultBranch = master
