@@ -1,3 +1,5 @@
+zmodload zsh/zprof
+
 ### Zinit
 
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -23,10 +25,6 @@ zinit for \
 zinit ice wait lucid; zinit snippet OMZP::colored-man-pages/colored-man-pages.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZP::extract/extract.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZP::git/git.plugin.zsh
-if [ -d $HOME/.pyenv ]; then
-    zinit ice wait lucid atload"source <(python -m pip completion --zsh)"
-    zinit snippet OMZP::pyenv/pyenv.plugin.zsh
-fi
 # others
 zinit ice wait lucid as"completion"; zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 zinit ice wait lucid as"completion"; zinit snippet https://github.com/docker/compose/blob/master/contrib/completion/zsh/_docker-compose
@@ -70,6 +68,13 @@ export HTTPS_PROXY=$proxy
 export https_proxy=$proxy
 ## Poetry
 export PATH="$HOME/.poetry/bin:$PATH"
+## Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
+fi
 ## Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 ## Starship

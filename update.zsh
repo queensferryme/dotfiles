@@ -42,6 +42,8 @@ if [ -d $HOME/.pyenv ]; then
     echo '========== Upgrading Pyenv =========='
     cd $HOME/.pyenv
     git pull
+    src/configure
+    make -C src/
 fi
 
 # Upgrade Rust
