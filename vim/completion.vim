@@ -1,7 +1,8 @@
 let g:coc_global_extensions = [
     \ 'coc-pairs',
     \ 'coc-pyright',
-    \ 'coc-rust-analyzer'
+    \ 'coc-rust-analyzer',
+    \ 'coc-tsserver'
     \ ]
 
 highlight link CocRustTypeHint Comment
