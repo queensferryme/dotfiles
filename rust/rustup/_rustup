@@ -58,6 +58,8 @@ case $state in
         case $line[1] in
             (active-toolchain)
 _arguments "${_arguments_options[@]}" \
+'-v[Enable verbose output with rustc information]' \
+'--verbose[Enable verbose output with rustc information]' \
 '-h[Prints help information]' \
 '--help[Prints help information]' \
 '-V[Prints version information]' \
