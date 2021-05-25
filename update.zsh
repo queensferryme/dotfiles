@@ -27,7 +27,7 @@ fi
 # Upgrade NVim
 if [ $(command -v nvim) != "" ]; then
     echo '========== Upgrading Neovim =========='
-    nvim +PlugUpgrade +PlugUpdate +CocUpdate +qall
+    nvim +PlugUpgrade +PlugUpdate +qall
 fi
 
 # Upgrade Poetry
