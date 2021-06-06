@@ -1,4 +1,6 @@
 colorscheme onehalflight
+highlight Normal ctermbg=None guibg=None
+highlight LineNr ctermbg=None guibg=None
 
 let g:signify_sign_add = "▍+"
 let g:signify_sign_delete = "▍⨯"
