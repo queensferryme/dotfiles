@@ -17,9 +17,9 @@ call plug#end()
 runtime appearance.vim
 runtime buffer-line.vim
 runtime completion.vim
-runtime file-tree.vim
 runtime indentation.vim
 runtime shortcut.vim
 runtime miscellany.vim
 runtime status-line.vim
+runtime tree.vim
 
