@@ -1,4 +1,5 @@
 colorscheme onehalflight
+
 highlight Normal ctermbg=None guibg=None
 highlight LineNr ctermbg=None guibg=None
 

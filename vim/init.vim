@@ -15,11 +15,11 @@ call plug#end()
 
 
 runtime appearance.vim
-runtime buffer.vim
+runtime buffer-line.vim
 runtime completion.vim
-runtime indent.vim
-runtime mapping.vim
-runtime misc.vim
-runtime status.vim
-runtime tree.vim
+runtime file-tree.vim
+runtime indentation.vim
+runtime shortcut.vim
+runtime miscellany.vim
+runtime status-line.vim
 
