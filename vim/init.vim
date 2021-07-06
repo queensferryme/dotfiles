@@ -3,7 +3,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
+    Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'mhinz/vim-signify'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
