@@ -13,8 +13,7 @@ fi
 source "$HOME/.zinit/bin/zinit.zsh"
 # plugins
 zinit ice wait lucid src"z.sh"; zinit light rupa/z
-zinit ice wait lucid; zinit light zdharma/fast-syntax-highlighting
-zinit ice wait lucid blockf atload"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay"; zinit light zsh-users/zsh-completions
+zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit light zdharma/fast-syntax-highlighting
 # omz libraries
 zinit for \
     OMZL::completion.zsh \
@@ -25,9 +24,6 @@ zinit for \
 zinit ice wait lucid; zinit snippet OMZP::colored-man-pages/colored-man-pages.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZP::extract/extract.plugin.zsh
 zinit ice wait lucid; zinit snippet OMZP::git/git.plugin.zsh
-# others
-zinit ice wait lucid as"completion"; zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
-zinit ice wait lucid as"completion"; zinit snippet https://github.com/docker/compose/blob/master/contrib/completion/zsh/_docker-compose
 ### Zinit END
 #
 ### User Configuration
@@ -35,13 +31,8 @@ zinit ice wait lucid as"completion"; zinit snippet https://github.com/docker/com
 ## Bat
 export BAT_THEME=OneHalfLight
 ## Direnv
-if [[ `command -v direnv` != "" ]]; then
+if [ $(command -v direnv) != "" ]; then
     eval "$(direnv hook zsh)"
-fi
-## Golang
-if [[ `command -v go` != "" ]]; then
-    export GOPATH="`(go env GOPATH)`"
-    export PATH="$GOPATH/bin:$PATH"
 fi
 ## N
 if [ -d $HOME/.n ]; then
@@ -52,7 +43,7 @@ fi
 alias vim="nvim"
 ## Others
 bindkey -v
-proxy=`cat ~/.zsh_proxy`
+proxy=`cat ~/.proxy`
 export ALL_PROXY=$proxy
 export all_proxy=$proxy
 export HTTP_PROXY=$proxy
@@ -60,11 +51,9 @@ export http_proxy=$proxy
 export HTTPS_PROXY=$proxy
 export https_proxy=$proxy
 ## Poetry
-export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 ## Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
+if [ $(command -v pyenv) != "" ]; then
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
 fi

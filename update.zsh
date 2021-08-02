@@ -3,28 +3,20 @@
 source $HOME/.zshrc
 
 # Upgrade MacPorts
-if [ -d $HOME/.macports ]; then
-    echo '========== Upgrading MacPorts =========='
-    sudo port selfupdate
-    sudo port upgrade outdated
-    sudo port clean --all installed
-    if [[ $(port echo inactive) != "" ]]; then
-        sudo port uninstall --follow-dependencies inactive
-    fi
-    if [[ $(port echo leaves) != "" ]]; then
-        sudo port uninstall --follow-dependencies leaves
-    fi
+if [ $(command -v brew) != "" ]; then
+    echo '========== Upgrading Brew =========='
+    brew upgrade
+    brew cleanup -s
 fi
 
 # Upgrade N
 if [ -d $HOME/.n ]; then
     echo '========== Upgrading N =========='
-    yes | n-update
     n lts
     n prune
 fi
 
-# Upgrade NVim
+# Upgrade NeoVim
 if [ $(command -v nvim) != "" ]; then
     echo '========== Upgrading Neovim =========='
     nvim +PlugUpgrade +PlugUpdate +qall
@@ -35,15 +27,6 @@ if [ -d $HOME/.poetry ]; then
     echo '========== Upgrading Poetry =========='
     poetry self update
     poetry completions zsh > $HOME/.zinit/completions/_poetry
-fi
-
-# Upgrade Pyenv
-if [ -d $HOME/.pyenv ]; then
-    echo '========== Upgrading Pyenv =========='
-    cd $HOME/.pyenv
-    git pull
-    src/configure
-    make -C src/
 fi
 
 # Upgrade Rust
