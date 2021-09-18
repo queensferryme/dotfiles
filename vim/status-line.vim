@@ -15,7 +15,7 @@ local colors = {}
 colors.black  = vim.g.terminal_color_0
 colors.blue   = vim.g.terminal_color_4
 colors.green  = vim.g.terminal_color_2
-colors.grey   = "#CCCCCC"
+colors.grey   = "#555555"
 colors.purple = vim.g.terminal_color_5
 colors.red    = vim.g.terminal_color_1
 colors.yellow = vim.g.terminal_color_3
@@ -173,7 +173,7 @@ line.section.right[4] = {
     FileType = {
         provider = buffer.get_buffer_filetype,
         condition = condition.buffer_not_empty,
-        highlight = {colors.cyan, colors.grey},
+        highlight = {colors.white, colors.grey},
         separator = " ",
         separator_highlight = {colors.grey, colors.grey}
     }

@@ -2,7 +2,7 @@
     gpgsign = true
 [core]
     editor = nvim
-    pager = delta --light --keep-plus-minus-markers
+    pager = delta --dark --keep-plus-minus-markers
 [delta]
     features = line-numbers
     hunk-header-style = syntax
@@ -14,4 +14,4 @@
     name = Queensferry
     signingkey = E6D59A73449EB620EBE2CF5685F6177EE060F458
 [init]
-	defaultBranch = master
+    defaultBranch = master

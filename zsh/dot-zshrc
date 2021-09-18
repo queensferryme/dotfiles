@@ -1,5 +1,3 @@
-zmodload zsh/zprof
-
 ### Zinit
 
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -21,15 +19,17 @@ zinit for \
     OMZL::key-bindings.zsh \
     OMZL::theme-and-appearance.zsh
 # omz plugins
-zinit ice wait lucid; zinit snippet OMZP::colored-man-pages/colored-man-pages.plugin.zsh
-zinit ice wait lucid; zinit snippet OMZP::extract/extract.plugin.zsh
-zinit ice wait lucid; zinit snippet OMZP::git/git.plugin.zsh
+zinit ice wait lucid; zinit snippet OMZP::colored-man-pages
+zinit ice wait lucid; zinit snippet OMZP::extract
+zinit ice wait lucid; zinit snippet OMZP::git
+zinit ice as"completion"; zinit snippet OMZP::docker/_docker
+zinit ice as"completion"; zinit snippet OMZP::docker-compose/_docker-compose
 ### Zinit END
 #
 ### User Configuration
 
 ## Bat
-export BAT_THEME=OneHalfLight
+export BAT_THEME=OneHalfDark
 ## Direnv
 if [ $(command -v direnv) != "" ]; then
     eval "$(direnv hook zsh)"
