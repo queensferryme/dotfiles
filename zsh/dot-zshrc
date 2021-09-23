@@ -12,6 +12,8 @@ source "$HOME/.zinit/bin/zinit.zsh"
 # plugins
 zinit ice wait lucid src"z.sh"; zinit light rupa/z
 zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit light zdharma/fast-syntax-highlighting
+zinit ice wait lucid as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX"
+zinit light tj/git-extras
 # omz libraries
 zinit for \
     OMZL::completion.zsh \
@@ -42,6 +44,7 @@ fi
 ## NeoVim
 alias vim="nvim"
 ## Others
+alias rmr="rm -rf"
 bindkey -v
 proxy=`cat ~/.proxy`
 export ALL_PROXY=$proxy
@@ -50,8 +53,6 @@ export HTTP_PROXY=$proxy
 export http_proxy=$proxy
 export HTTPS_PROXY=$proxy
 export https_proxy=$proxy
-## Poetry
-export PATH="$HOME/.local/bin:$PATH"
 ## Pyenv
 if [[ $(command -v pyenv) != "" ]]; then
     eval "$(pyenv init --path)"
