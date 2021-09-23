@@ -1,4 +1,5 @@
 let g:coc_global_extensions = [
+    \ 'coc-go',
     \ 'coc-pairs',
     \ 'coc-pyright',
     \ 'coc-rust-analyzer',

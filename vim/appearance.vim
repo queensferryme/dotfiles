@@ -14,7 +14,7 @@ set updatetime=100
 
 lua << EOF
 require("nvim-treesitter.configs").setup {
-  ensure_installed = {'javascript', 'python', 'rust', 'toml'},
+  ensure_installed = {'go', 'javascript', 'python', 'rust', 'toml'},
   highlight = {
     enable = true
   },
