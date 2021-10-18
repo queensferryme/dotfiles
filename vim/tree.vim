@@ -17,3 +17,7 @@ let g:nvim_tree_window_picker_exclude = {
 
 set termguicolors
 
+lua <<EOF
+require'nvim-tree'.setup {}
+EOF
+
