@@ -33,7 +33,7 @@ zinit ice as"completion"; zinit snippet OMZP::docker-compose/_docker-compose
 ### User Configuration
 
 ## Bat
-export BAT_THEME=OneHalfDark
+export BAT_THEME=OneHalfLight
 ## Golang
 export PATH="`go env GOPATH`/bin:$PATH"
 ## Direnv

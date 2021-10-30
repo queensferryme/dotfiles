@@ -2,7 +2,7 @@
     gpgsign = true
 [core]
     editor = nvim
-    pager = delta --dark --keep-plus-minus-markers
+    pager = delta --light --keep-plus-minus-markers
 [delta]
     features = line-numbers
     hunk-header-style = syntax
