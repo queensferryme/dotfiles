@@ -1,0 +1,45 @@
+shell = "zsh"
+
+[plugins]
+
+[plugins.compinit]
+inline = "autoload -Uz compinit && compinit"
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[plugins.ohmyzsh-lib]
+github = "ohmyzsh/ohmyzsh"
+dir = "lib"
+use = [
+    "completion.zsh",
+    "directories.zsh",
+    "theme-and-appearance.zsh"
+]
+
+[plugins.ohmyzsh-plugins]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins"
+use = ["{colored-man-pages,extract,git,golang}/*.plugin.zsh"]
+apply = ["defer"]
+
+[plugins.z]
+github = "rupa/z"
+apply = ["defer"]
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["defer"]
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
+
+# `zsh-history-substring-search` must be after `zsh-syntax-highlighting`
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+apply =["defer"]
+
+[templates]
+defer = { value = 'zsh-defer source "{{ file }}"', each = true }
+

@@ -1,66 +1,34 @@
-### Zinit
+eval "$(sheldon source)"
 
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
-fi
-
-source "$HOME/.zinit/bin/zinit.zsh"
-# plugins
-zinit ice wait lucid src"z.sh"; zinit light rupa/z
-zinit ice wait lucid; zinit light zdharma/fast-syntax-highlighting
-zinit ice wait lucid atload"zicompinit; zicdreplay"; zinit light zsh-users/zsh-completions
-zinit ice wait lucid as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX"
-zinit light tj/git-extras
-# omz libraries
-zinit for \
-    OMZL::completion.zsh \
-    OMZL::directories.zsh \
-    OMZL::key-bindings.zsh \
-    OMZL::theme-and-appearance.zsh
-# omz plugins
-zinit ice wait lucid; zinit snippet OMZP::colored-man-pages
-zinit ice wait lucid; zinit snippet OMZP::extract
-zinit ice wait lucid; zinit snippet OMZP::git
-zinit ice wait lucid; zinit snippet OMZP::golang
-zinit ice as"completion"; zinit snippet OMZP::docker/_docker
-zinit ice as"completion"; zinit snippet OMZP::docker-compose/_docker-compose
-### Zinit END
-#
-### User Configuration
-
-## Bat
-export BAT_THEME=OneHalfLight
-## Golang
-export PATH="`go env GOPATH`/bin:$PATH"
-## Direnv
-if [[ $(command -v direnv) != "" ]]; then
-    eval "$(direnv hook zsh)"
-fi
-## NeoVim
+# Aliases
 alias vim="nvim"
-## Others
 alias rmr="rm -rf"
-bindkey -v
-proxy=`cat ~/.proxy`
-export ALL_PROXY=$proxy
-export all_proxy=$proxy
-export HTTP_PROXY=$proxy
-export http_proxy=$proxy
-export HTTPS_PROXY=$proxy
-export https_proxy=$proxy
-## Pyenv
-if [[ $(command -v pyenv) != "" ]]; then
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
+
+# Applications
+if [[ $(command -v direnv) != "" ]]; then
+    zsh-defer eval "$(direnv hook zsh)"
 fi
-## Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-## Starship
+if [[ $(command -v pyenv) != "" ]]; then
+    zsh-defer eval "$(pyenv init --path)"
+    zsh-defer eval "$(pyenv init -)"
+fi
 eval "$(starship init zsh)"
 
-### User Configuration END
+# Key bindings
+bindkey -v
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
+# Variables
+export BAT_THEME=OneHalfLight
+export HISTORY_SUBSTRING_SEARCH_FUZZY=1
+export PATH="$HOME/.cargo/bin:$PATH"
+if [[ -f ~/.proxy ]]; then
+    proxy=`cat ~/.proxy`
+    export ALL_PROXY=$proxy
+    export all_proxy=$proxy
+    export HTTP_PROXY=$proxy
+    export http_proxy=$proxy
+    export HTTPS_PROXY=$proxy
+    export https_proxy=$proxy
+fi
