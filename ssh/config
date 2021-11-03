@@ -2,17 +2,13 @@ Host *
     IdentityFile ~/.ssh/id_ed25519
     ServerAliveInterval 60
 
-Host aliyun
-    Hostname 120.55.55.125
-    User root
-
 Host droplet
     Hostname 206.189.80.47
-    User root
+    User queensferry
     ProxyCommand nc -v -x 127.0.0.1:7890 %h %p
 
 Host github.com
-   HostName github.com
-   User git
-   ProxyCommand nc -v -x 127.0.0.1:7890 %h %p
+    HostName github.com
+    User git
+    ProxyCommand nc -v -x 127.0.0.1:7890 %h %p
 
