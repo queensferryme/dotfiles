@@ -7,7 +7,6 @@ function! NvimTreeWidth() abort
 endfunction
 
 let g:nvim_tree_group_empty = 1
-let g:nvim_tree_hide_dotfiles = 1
 let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_special_files = []
 let g:nvim_tree_width = NvimTreeWidth()
@@ -18,6 +17,10 @@ let g:nvim_tree_window_picker_exclude = {
 set termguicolors
 
 lua <<EOF
-require'nvim-tree'.setup {}
+require'nvim-tree'.setup {
+    filters = {
+        dotfiles = true
+    }
+}
 EOF
 
