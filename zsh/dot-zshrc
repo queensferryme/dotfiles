@@ -1,7 +1,7 @@
 eval "$(sheldon source)"
 
 # Aliases
-alias vim="nvim"
+alias vim=$(which nvim)
 alias rmr="rm -rf"
 
 # Applications

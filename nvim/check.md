@@ -1,0 +1,15 @@
+- alpha-nvim: dashboard decoration;
+- autosave.nvim;
+- coc.nvim: jump to definition, show documentation etc;
+- comment.nvim / kommentary;
+- floaterm: status line indicator, open terminal in right;
+- hop.nvim;
+- nvim-autopairs: or any better alternative than `coc-pairs`;
+- nvim-treesitter: better keymap for incremental selection;
+- packer.nvim: lazy load, performance, sequencing, auto install, etc;
+- stablize.nvim / winshift.nvim: window management;
+- surround.nvim;
+- tabout.nvim;
+- telescope.nvim: fancy plugins;
+- vim-repeat;
+- other cool stuff in awesome-neovim#editing-support.
