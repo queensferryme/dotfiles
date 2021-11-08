@@ -1,7 +1,5 @@
 function setup_autopair()
-    require('nvim-autopairs').setup {
-        map_cr = true,
-    }
+    require('nvim-autopairs').setup {}
 end
 
 function setup_coc()

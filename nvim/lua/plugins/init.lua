@@ -5,10 +5,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 require('packer').startup(function()
-    use {
-        'wbthomason/packer.nvim',
-        event = 'VimEnter',
-    }
+    use 'wbthomason/packer.nvim'
 
     -- buffer line
     use {
