@@ -6,7 +6,7 @@
 - hop.nvim;
 - nvim-autopairs: or any better alternative than `coc-pairs`;
 - nvim-treesitter: better keymap for incremental selection;
-- packer.nvim: lazy load, performance, sequencing, auto install, etc;
+- packer.nvim: lazy load, performance, sequencing, etc;
 - stablize.nvim / winshift.nvim: window management;
 - surround.nvim;
 - tabout.nvim;

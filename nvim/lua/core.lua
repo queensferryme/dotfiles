@@ -1,7 +1,7 @@
 vim.api.nvim_set_keymap('n', '<Leader>r', ':set relativenumber!<CR>', { noremap = true })
 
 vim.cmd [[autocmd WinEnter * setlocal cursorline]]
-vim.cmd [[autocmd WinLeave * setlocal cursorline!]]
+vim.cmd [[autocmd WinLeave * setlocal nocursorline]]
 
 vim.g.mapleader = ' '
 
