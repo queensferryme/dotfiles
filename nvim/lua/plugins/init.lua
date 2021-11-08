@@ -21,7 +21,11 @@ require('packer').startup(function()
     use {
         'neoclide/coc.nvim',
         branch = 'release',
-        config = function() require('plugins.completion') end,
+        config = function() require('plugins.completion').coc() end,
+    }
+    use {
+        'windwp/nvim-autopairs',
+        config = function() require('plugins.completion').autopair() end,
     }
 
     -- dashboard
