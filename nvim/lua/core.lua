@@ -1,5 +1,13 @@
-vim.cmd [[autocmd WinEnter,BufWinEnter * lua EnableCurosrline()]]
-vim.cmd [[autocmd WinLeave * setlocal nocursorline]]
+vim.cmd [[augroup cursorline
+    autocmd!
+    autocmd BufWinEnter,WinEnter * lua EnableCurosrline()
+    autocmd WinLeave * setlocal nocursorline
+augroup END]]
+vim.cmd [[augroup search
+    autocmd!
+    autocmd InsertEnter * set nohlsearch
+    autocmd InsertLeave * set hlsearch
+augroup END]]
 function EnableCurosrline()
     if vim.bo.filetype == 'alpha' then
         return
