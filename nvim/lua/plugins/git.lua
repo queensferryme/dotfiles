@@ -1,5 +1,6 @@
 function setup_git_blame()
     vim.g.blamer_enabled = true
+    vim.g.blamer_delay = 2000
     vim.g.blamer_relative_time = true
 end
 
