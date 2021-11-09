@@ -12,6 +12,9 @@ function setup_coc()
         'coc-rust-analyzer',
         'coc-tsserver',
     }
+
+    vim.opt.hidden = true
+    vim.opt.shortmess:append('c')
 end
 
 local M = {}
