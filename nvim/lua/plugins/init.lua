@@ -59,7 +59,7 @@ require('packer').startup(function()
     -- nvim-tree
     use {
         'kyazdani42/nvim-tree.lua',
-        config = function() require('plugins.nvim-tree') end,
+        config = function() require('plugins.tree') end,
         after = 'github-nvim-theme',
         requires = 'kyazdani42/nvim-web-devicons',
     }

@@ -1,6 +1,12 @@
 function setup_indent()
     vim.g.indent_blankline_filetype_exclude = { 'alpha', 'help', 'packer' }
-    vim.g.indent_blankline_show_end_of_line = true
+
+    vim.opt.colorcolumn = "99999"
+
+    -- TODO: https://github.com/lukas-reineke/indent-blankline.nvim/issues/142
+    require('indent_blankline').setup {
+        show_current_context = true,
+    }
 end
 
 function setup_theme()

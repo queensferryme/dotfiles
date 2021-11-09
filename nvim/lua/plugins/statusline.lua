@@ -4,7 +4,7 @@ function setup_gps()
             ["class-name"] = ' ',
             ["function-name"] = ' ',
             ["method-name"] = ' ',
-            ["container-name"] = '  ',
+            ["container-name"] = ' ',
             ["tag-name"] = ' '
         },
         depth = 3,
