@@ -5,6 +5,12 @@ function setup_autosave()
     }
 end
 
+function setup_comment()
+    require('Comment').setup {
+        ignore = '^%s*$',
+    }
+end
+
 function setup_indent()
     vim.g.indent_blankline_filetype_exclude = { 'alpha', 'help', 'packer' }
 
@@ -25,6 +31,7 @@ end
 
 local M = {}
 M.autosave = setup_autosave
+M.comment = setup_comment
 M.indent = setup_indent
 M.theme = setup_theme
 return M

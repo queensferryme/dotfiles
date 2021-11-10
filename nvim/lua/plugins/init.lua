@@ -50,6 +50,10 @@ require('packer').startup(function()
         config = function() require('plugins.miscellany').indent() end,
     }
     use {
+        'numToStr/Comment.nvim',
+        config = function() require('plugins.miscellany').comment() end,
+    }
+    use {
         'Pocco81/AutoSave.nvim',
         config = function() require('plugins.miscellany').autosave() end,
     }

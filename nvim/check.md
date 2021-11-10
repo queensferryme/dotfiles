@@ -1,6 +1,5 @@
 - alpha-nvim: dashboard decoration;
 - coc.nvim: jump to definition, show documentation etc;
-- comment.nvim / kommentary;
 - floaterm: status line indicator, open terminal in right;
 - gitsigns.nvim: hunk ops;
 - hop.nvim;
