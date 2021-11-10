@@ -1,5 +1,5 @@
-vim.api.nvim_set_keymap('n', '<C-n>', ':lua NvimTreeToggle()<CR>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<C-n>', '<C-O>:lua NvimTreeToggle()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-n>', ':lua NvimTreeToggle()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-n>', '<C-O>:lua NvimTreeToggle()<CR>', { noremap = true, silent = true })
 function NvimTreeToggle()
     local bufferline = require('bufferline.state')
     local tree = require('nvim-tree')

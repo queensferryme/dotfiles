@@ -50,6 +50,10 @@ require('packer').startup(function()
         config = function() require('plugins.miscellany').indent() end,
     }
     use {
+        'Pocco81/AutoSave.nvim',
+        config = function() require('plugins.miscellany').autosave() end,
+    }
+    use {
         'projekt0n/github-nvim-theme',
         after = "lualine.nvim",
         config = function() require('plugins.miscellany').theme() end,

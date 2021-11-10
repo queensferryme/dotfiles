@@ -1,3 +1,10 @@
+function setup_autosave()
+    require('autosave').setup {
+        enabled = true,
+        execution_message = "",
+    }
+end
+
 function setup_indent()
     vim.g.indent_blankline_filetype_exclude = { 'alpha', 'help', 'packer' }
 
@@ -17,6 +24,7 @@ function setup_theme()
 end
 
 local M = {}
+M.autosave = setup_autosave
 M.indent = setup_indent
 M.theme = setup_theme
 return M
