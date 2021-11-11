@@ -8,6 +8,7 @@ vim.cmd [[augroup search
     autocmd InsertEnter * set nohlsearch
     autocmd InsertLeave * set hlsearch
 augroup END]]
+vim.cmd [[autocmd VimEnter * highlight CursorI guibg=black]]
 function EnableCurosrline()
     if vim.bo.filetype == 'alpha' then
         return
@@ -24,7 +25,7 @@ vim.opt.backup = false
 vim.opt.cursorline = true
 vim.opt.encoding = 'utf-8'
 vim.opt.expandtab = true
-vim.opt.guicursor = 'a:block,i:ver10'
+vim.opt.guicursor = 'a:block,i:ver10-CursorI'
 vim.opt.ignorecase = true
 vim.opt.mouse = 'a'
 vim.opt.number = true
