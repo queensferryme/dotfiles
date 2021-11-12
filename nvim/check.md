@@ -10,4 +10,5 @@
 - tabout.nvim;
 - telescope.nvim: fancy plugins;
 - vim-repeat;
+- minimap.vim;
 - other cool stuff in awesome-neovim#editing-support.

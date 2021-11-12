@@ -17,14 +17,13 @@ function setup_indent()
     vim.opt.colorcolumn = "99999"
 
     -- TODO: https://github.com/lukas-reineke/indent-blankline.nvim/issues/142
-    require('indent_blankline').setup {
-        show_current_context = true,
-    }
+    require('indent_blankline').setup()
 end
 
 function setup_theme()
     require('github-theme').setup({
         theme_style = 'light',
+        hide_inactive_statusline = false,
         sidebars = { 'packer', 'terminal' },
     })
 end

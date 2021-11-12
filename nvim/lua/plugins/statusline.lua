@@ -12,6 +12,9 @@ function setup_gps()
 end
 
 function setup_lualine()
+    vim.cmd [[autocmd VimEnter * highlight StatusLine guibg=none]]
+    vim.cmd [[autocmd VimEnter * highlight StatusLineNC guibg=none]]
+
     local gps = require('nvim-gps')
 
     local diagnostics_component = {
@@ -85,7 +88,7 @@ function setup_lualine()
             },
             lualine_y = { 'progress' },
             lualine_y = {},
-            lualine_z = { location_component }
+            lualine_z = { location_component },
         },
         extensions = {
             nvim_tree_extension,
