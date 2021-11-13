@@ -10,8 +10,11 @@ vim.cmd [[augroup search
 augroup END]]
 vim.cmd [[autocmd VimEnter * highlight CursorI guibg=black]]
 function EnableCurosrline()
-    if vim.bo.filetype == 'alpha' then
-        return
+    local disabled_filetypes = { 'alpha', 'floaterm' }
+    for _, filetype in ipairs(disabled_filetypes) do
+        if vim.bo.filetype == filetype then
+            return
+        end
     end
     vim.wo.cursorline = true
 end
