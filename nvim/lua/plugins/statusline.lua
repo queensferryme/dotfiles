@@ -23,6 +23,18 @@ function setup_lualine()
         update_in_insert = true,
     }
 
+    local diff_component = {
+        'diff',
+        source = function()
+            local stats = vim.call('sy#repo#get_stats')
+            return {
+                added = stats[1],
+                modified = stats[2],
+                removed = stats[3],
+            }
+        end,
+    }
+
     local fileformat_component = {
         'fileformat',
         symbols = {
@@ -87,7 +99,7 @@ function setup_lualine()
             lualine_a = { mode_component },
             lualine_b = {
                 'branch',
-                'diff',
+                diff_component,
                 diagnostics_component,
             },
             lualine_c = {
