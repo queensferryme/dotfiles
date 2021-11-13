@@ -2,8 +2,4 @@
 - coc.nvim: jump to definition, show documentation etc;
 - hop.nvim;
 - packer.nvim: lazy load, performance, sequencing, etc;
-- stablize.nvim / winshift.nvim: window management;
-- tabout.nvim;
 - telescope.nvim: fancy plugins;
-- minimap.vim;
-- other cool stuff in awesome-neovim#editing-support.
