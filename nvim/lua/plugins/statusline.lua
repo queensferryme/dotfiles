@@ -32,6 +32,19 @@ function setup_lualine()
         },
     }
 
+    local floaterm_component = {
+        function()
+            local terminals = vim.call('floaterm#buflist#gather')
+            if #terminals <= 1 then return '' end
+            local terminal = vim.call('floaterm#buflist#curr')
+            local index = vim.fn.index(terminals, terminal) + 1
+            return '[' .. index .. '/' .. #terminals .. '] '
+        end,
+        cond = function()
+            return vim.bo.filetype == 'floaterm'
+        end,
+    }
+
     local gps_component = {
         gps.get_location,
         cond = gps.is_available,
@@ -79,6 +92,7 @@ function setup_lualine()
             },
             lualine_c = {
                 'filename',
+                floaterm_component,
                 gps_component,
             },
             lualine_x = {
@@ -86,7 +100,6 @@ function setup_lualine()
                 fileformat_component,
                 'filetype',
             },
-            lualine_y = { 'progress' },
             lualine_y = {},
             lualine_z = { location_component },
         },
