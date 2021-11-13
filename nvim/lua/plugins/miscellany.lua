@@ -17,7 +17,9 @@ function setup_indent()
     vim.opt.colorcolumn = "99999"
 
     -- TODO: https://github.com/lukas-reineke/indent-blankline.nvim/issues/142
-    require('indent_blankline').setup()
+    require('indent_blankline').setup {
+        buftype_exclude = { 'terminal' },
+    }
 end
 
 function setup_theme()
