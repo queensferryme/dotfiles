@@ -5,6 +5,9 @@ function setup_git_blame()
 end
 
 function setup_git_signs()
+    vim.api.nvim_set_keymap('n', 'ghd', ':SignifyHunkDiff<CR>', { noremap = true })
+    vim.api.nvim_set_keymap('n', 'ghu', ':SignifyHunkUndo<CR>', { noremap = true })
+
     vim.g.signify_sign_add = '+'
     vim.g.signify_sign_delete = '⨯'
     vim.g.signify_sign_delete_first_line = '⨯̄'

@@ -1,7 +1,6 @@
 - alpha-nvim: dashboard decoration;
 - coc.nvim: jump to definition, show documentation etc;
 - floaterm: status line indicator, open terminal in right;
-- gitsigns.nvim: hunk ops;
 - hop.nvim;
 - packer.nvim: lazy load, performance, sequencing, etc;
 - stablize.nvim / winshift.nvim: window management;

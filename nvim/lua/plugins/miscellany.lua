@@ -23,6 +23,8 @@ function setup_indent()
 end
 
 function setup_theme()
+    vim.cmd [[autocmd TermEnter * setlocal winhighlight=Normal:NormalSB]]
+
     require('github-theme').setup({
         theme_style = 'light',
         hide_inactive_statusline = false,
