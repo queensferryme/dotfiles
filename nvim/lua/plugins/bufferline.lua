@@ -1,6 +1,5 @@
 function map(k, v)
     vim.api.nvim_set_keymap('n', k, v, { noremap = true })
-    vim.api.nvim_set_keymap('i', k, '<C-o>' .. v, { noremap = true })
 end
 -- Buffer Selection
 map('<A-Left>',    ':BufferPrevious<CR>')

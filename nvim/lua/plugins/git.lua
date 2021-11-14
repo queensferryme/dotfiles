@@ -5,8 +5,10 @@ function setup_git_blame()
 end
 
 function setup_git_signs()
-    vim.api.nvim_set_keymap('n', 'ghd', ':SignifyHunkDiff<CR>', { noremap = true })
-    vim.api.nvim_set_keymap('n', 'ghu', ':SignifyHunkUndo<CR>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<Leader>hd', ':SignifyHunkDiff<CR>', { noremap = true })
+    vim.api.nvim_set_keymap('n', '<Leader>hj', '<Plug>(signify-next-hunk)', {})
+    vim.api.nvim_set_keymap('n', '<Leader>hk', '<Plug>(signify-prev-hunk)', {})
+    vim.api.nvim_set_keymap('n', '<Leader>hu', ':SignifyHunkUndo<CR>', { noremap = true })
 
     vim.g.signify_sign_add = '+'
     vim.g.signify_sign_delete = '⨯'
