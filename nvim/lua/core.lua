@@ -44,3 +44,6 @@ vim.opt.timeoutlen = 300
 vim.opt.updatetime = 100
 vim.opt.wrap = false
 vim.opt.writebackup = false
+
+-- Languages
+vim.cmd [[autocmd FileType go setlocal noexpandtab]]
