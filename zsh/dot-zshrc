@@ -1,10 +1,14 @@
+bindkey -v
 eval "$(sheldon source)"
 
 # Aliases
-alias vim=$(which nvim)
+alias cat="bat -p"
 alias rmr="rm -rf"
+alias vim=$(which nvim)
 
 # Applications
+eval "$(starship init zsh)"
+export BAT_THEME=OneHalfLight
 if [[ $(command -v direnv) != "" ]]; then
     zsh-defer eval "$(direnv hook zsh)"
 fi
@@ -12,16 +16,19 @@ if [[ $(command -v pyenv) != "" ]]; then
     zsh-defer eval "$(pyenv init --path)"
     zsh-defer eval "$(pyenv init -)"
 fi
-eval "$(starship init zsh)"
 
-# Key bindings
-bindkey -v
+# History
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+export HISTORY_SUBSTRING_SEARCH_FUZZY=1
+export SAVEHIST=10000
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY_TIME
+setopt EXTENDED_HISTORY
 
 # Variables
-export BAT_THEME=OneHalfLight
-export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 export PATH="$HOME/.cargo/bin:$PATH"
 if [[ -f ~/.proxy ]]; then
     proxy=`cat ~/.proxy`
