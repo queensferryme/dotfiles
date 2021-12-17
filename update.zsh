@@ -12,7 +12,7 @@ fi
 # Upgrade NeoVim
 if [[ $(command -v nvim) != "" ]]; then
     echo '========== Upgrading Neovim =========='
-    nvim +PlugUpgrade +PlugUpdate +qall
+    nvim +PackerSync '+autocmd User PackerComplete :qall'
     nvim +CocUpdateSync +TSUpdateSync +qall
 fi
 
