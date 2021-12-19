@@ -3,8 +3,8 @@ Host *
     ServerAliveInterval 60
 
 Host droplet
-    Hostname 206.189.80.47
-    User queensferry
+    Hostname 128.199.122.209
+    User root
     ProxyCommand nc -v -x 127.0.0.1:7890 %h %p
 
 Host github.com

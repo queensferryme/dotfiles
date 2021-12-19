@@ -17,8 +17,9 @@ require('packer').startup(function()
     -- completion
     use {
         'neoclide/coc.nvim',
-        branch = 'release',
+        branch = 'master',
         config = function() require('plugins.completion').coc() end,
+        run = 'yarn install --frozen-lockfile',
     }
     use {
         'windwp/nvim-autopairs',

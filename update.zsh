@@ -21,6 +21,8 @@ if [[ $(command -v rustup) != "" ]]; then
     echo '========== Upgrading Rust =========='
     rustup self update
     rustup update
+    rustup completions zsh > $HOME/.zfunc/_rustup
+    rustup completions zsh cargo > $HOME/.zfunc/_cargo
 fi
 
 # Upgrade Sheldon

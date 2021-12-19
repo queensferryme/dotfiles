@@ -3,7 +3,8 @@ eval "$(sheldon source)"
 
 # Aliases
 alias cat="bat -p"
-alias rmr="rm -rf"
+alias mkd="mkdir"
+alias rmr="rm -rfv"
 alias vim=$(which nvim)
 
 # Applications
@@ -30,6 +31,7 @@ setopt EXTENDED_HISTORY
 
 # Variables
 export PATH="$HOME/.cargo/bin:$PATH"
+export fpath=($HOME/.zfunc $fpath)
 if [[ -f ~/.proxy ]]; then
     proxy=`cat ~/.proxy`
     export ALL_PROXY=$proxy
