@@ -3,9 +3,35 @@ eval "$(sheldon source)"
 
 # Aliases
 alias cat="bat -p"
-alias mkd="mkdir"
-alias rmr="rm -rfv"
+alias md="mkdir -p"
+alias rmrf="rm -rfv"
 alias vim=$(which nvim)
+## Git
+alias ga="git add"
+alias gaa="git add --all"
+alias gb="git branch"
+alias gbd="git branch --delete"
+alias gc="git commit -v"
+alias gc!="git commit -v --amend"
+alias gca="git commit -v --all"
+alias gco="git checkout"
+alias gcob="git checkout -b"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias grs="git restore"
+alias grst="git restore --staged"
+alias gsw="git switch"
+alias gswc="git switch --create"
+## Go
+alias gob="go build"
+alias goc="go clean"
+alias gof="go fmt"
+alias gofa="go fmt ./..."
+alias gog="go get"
+alias gom="go mod"
+alias gor="go run"
+alias got="go test"
+alias gota="go test ./..."
 
 # Applications
 eval "$(starship init zsh)"

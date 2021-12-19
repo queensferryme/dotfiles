@@ -20,7 +20,7 @@ use = [
 [plugins.ohmyzsh-plugins]
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
-use = ["{colored-man-pages,extract,git,golang}/*.plugin.zsh"]
+use = ["{colored-man-pages,extract}/*.plugin.zsh"]
 apply = ["defer"]
 
 [plugins.z]
