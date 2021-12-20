@@ -16,14 +16,26 @@ require('packer').startup(function()
 
     -- completion
     use {
-        'neoclide/coc.nvim',
-        branch = 'master',
-        config = function() require('plugins.completion').coc() end,
-        run = 'yarn install --frozen-lockfile',
+        'ms-jpq/coq_nvim',
+        branch = 'coq',
+        config = require('plugins.completion').coq,
+        event = 'VimEnter',
+        requires = {
+            {
+                'ms-jpq/coq.artifacts',
+                branch = 'artifacts',
+            }
+        }
+    }
+    use {
+        'neovim/nvim-lspconfig',
+        after = 'coq_nvim',
+        config = require('plugins.completion').lsp,
+        requires = 'williamboman/nvim-lsp-installer',
     }
     use {
         'windwp/nvim-autopairs',
-        config = function() require('plugins.completion').autopair() end,
+        config = require('plugins.completion').autopair,
     }
 
     -- dashboard
@@ -108,7 +120,5 @@ require('packer').startup(function()
     use {
         'nvim-treesitter/nvim-treesitter',
         config = function() require('plugins.treesitter') end,
-        event = 'VimEnter',
-        run = ':TSUpdate',
     }
 end)

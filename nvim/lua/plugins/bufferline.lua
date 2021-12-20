@@ -4,15 +4,8 @@ end
 -- Buffer Selection
 map('<A-Left>',    ':BufferPrevious<CR>')
 map('<A-Right>',   ':BufferNext<CR>')
-map('<Leader>1',   ':BufferGoto 1<CR>')
-map('<Leader>2',   ':BufferGoto 2<CR>')
-map('<Leader>3',   ':BufferGoto 3<CR>')
-map('<Leader>4',   ':BufferGoto 4<CR>')
-map('<Leader>5',   ':BufferGoto 5<CR>')
-map('<Leader>6',   ':BufferGoto 6<CR>')
-map('<Leader>7',   ':BufferGoto 7<CR>')
-map('<Leader>8',   ':BufferGoto 8<CR>')
-map('<Leader>9',   ':BufferLast<CR>')
+map('<A-Up>',      ':BufferGoto 1<CR>')
+map('<A-Down>',    ':BufferLast<CR>')
 -- Buffer Manipulation
 -- TODO: https://github.com/romgrk/barbar.nvim/issues/202
 map('<Leader>w',   ':BufferClose<CR>')

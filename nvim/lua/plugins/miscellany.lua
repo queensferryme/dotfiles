@@ -18,7 +18,7 @@ function setup_indent()
 
     -- TODO: https://github.com/lukas-reineke/indent-blankline.nvim/issues/142
     require('indent_blankline').setup {
-        buftype_exclude = { 'terminal' },
+        buftype_exclude = { 'nofile', 'terminal' },
     }
 end
 

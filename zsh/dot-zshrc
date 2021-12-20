@@ -80,6 +80,9 @@ setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY_TIME
 setopt EXTENDED_HISTORY
 
+# Options
+setopt auto_cd
+
 # Variables
 export PATH="$HOME/.cargo/bin:$PATH"
 export fpath=($HOME/.zfunc $fpath)
