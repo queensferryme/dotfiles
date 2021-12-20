@@ -39,6 +39,10 @@ require('packer').startup(function()
         config = function() require('plugins.git').git_blame() end,
     }
     use {
+        'kdheepak/lazygit.nvim',
+        config = function() require('plugins.git').lazygit() end,
+    }
+    use {
         'mhinz/vim-signify',
         config = function() require('plugins.git').git_signs() end,
         requires = 'nvim-lua/plenary.nvim',
