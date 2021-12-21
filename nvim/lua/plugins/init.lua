@@ -31,7 +31,21 @@ require('packer').startup(function()
         'neovim/nvim-lspconfig',
         after = 'coq_nvim',
         config = require('plugins.completion').lsp,
-        requires = 'williamboman/nvim-lsp-installer',
+        requires = {
+            {
+                'rmagatti/goto-preview',
+                config = require('plugins.completion').goto_preview,
+            },
+            {
+                'ray-x/lsp_signature.nvim',
+                config = require('plugins.completion').lsp_signature,
+            },
+            {
+                'tami5/lspsaga.nvim',
+                config = require('plugins.completion').lspsaga,
+            },
+            'williamboman/nvim-lsp-installer',
+        },
     }
     use {
         'windwp/nvim-autopairs',

@@ -1,6 +1,4 @@
-function map(k, v)
-    vim.api.nvim_set_keymap('n', k, v, { noremap = true })
-end
+local map = require("utils").map
 -- Buffer Selection
 map('<A-Left>',    ':BufferPrevious<CR>')
 map('<A-Right>',   ':BufferNext<CR>')
@@ -8,9 +6,10 @@ map('<A-Up>',      ':BufferGoto 1<CR>')
 map('<A-Down>',    ':BufferLast<CR>')
 -- Buffer Manipulation
 -- TODO: https://github.com/romgrk/barbar.nvim/issues/202
-map('<Leader>w',   ':BufferClose<CR>')
 map('<C-S-Left>',  ':BufferMovePrevious<CR>')
 map('<C-S-Right>', ':BufferMoveNext<CR>')
+map('<C-S-Up>',    ':BufferPin<CR>')
+map('<C-S-Down>',  ':BufferClose<CR>')
 
 vim.g.bufferline = {
     animation = true,
@@ -26,5 +25,5 @@ vim.g.bufferline = {
     icon_separator_inactive = '▍',
     icon_pinned = '',
     semantic_letters = true,
-    no_name_title = '[Untitled]',
+    no_name_title = '[No Name]',
 }

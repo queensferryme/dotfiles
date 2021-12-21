@@ -12,13 +12,11 @@ function setup_comment()
 end
 
 function setup_indent()
-    vim.g.indent_blankline_filetype_exclude = { 'alpha', 'help', 'packer' }
-
     vim.opt.colorcolumn = "99999"
 
     -- TODO: https://github.com/lukas-reineke/indent-blankline.nvim/issues/142
     require('indent_blankline').setup {
-        buftype_exclude = { 'nofile', 'terminal' },
+        buftype_exclude = { 'help', 'nofile', 'terminal' },
     }
 end
 
@@ -29,6 +27,8 @@ function setup_theme()
         theme_style = 'light',
         hide_inactive_statusline = false,
         sidebars = { 'packer', 'terminal' },
+        dark_sidebar = true,
+        dark_float = true,
     })
 end
 

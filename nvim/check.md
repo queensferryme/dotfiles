@@ -1,5 +1,4 @@
 - alpha-nvim: dashboard decoration;
-- coc.nvim: jump to definition, show documentation etc;
 - hop.nvim;
 - packer.nvim: lazy load, performance, sequencing, etc;
 - telescope.nvim: fancy plugins;
