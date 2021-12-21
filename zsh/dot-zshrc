@@ -1,4 +1,15 @@
-bindkey -v
+# Initialization
+export fpath=($HOME/.zfunc $fpath)
+if [[ -f ~/.proxy ]]; then
+    proxy=`cat ~/.proxy`
+    export ALL_PROXY=$proxy
+    export all_proxy=$proxy
+    export HTTP_PROXY=$proxy
+    export http_proxy=$proxy
+    export HTTPS_PROXY=$proxy
+    export https_proxy=$proxy
+fi
+## Sheldon
 eval "$(sheldon source)"
 
 # Aliases
@@ -26,7 +37,6 @@ alias gca="git commit -v --all"
 alias gcm="git checkout \$(gbm)"
 alias gcmsg="git commit -m"
 alias gco="git checkout"
-alias gcob="git checkout -b"
 alias gcp="git cherry-pick"
 alias gd="git diff"
 alias gds="git diff --staged"
@@ -34,7 +44,7 @@ alias gl="git pull"
 alias glo="git log"
 alias glog="git log --oneline --decorate --graph"
 alias gp="git push"
-alias gpf!="git push --force"
+alias gpf!="git push --force-with-lease"
 alias grb="git rebase"
 alias grbi="git rebase --interactive"
 alias grh="git reset"
@@ -59,17 +69,30 @@ alias got="go test"
 alias gota="go test ./..."
 
 # Applications
-eval "$(starship init zsh)"
+## Bat
 export BAT_THEME=OneHalfLight
+## Cargo
+if [[ -d "$HOME/.cargo" ]]; then
+    zsh-defer source $HOME/.cargo/env
+fi
+## Direnv
 if [[ $(command -v direnv) != "" ]]; then
     zsh-defer eval "$(direnv hook zsh)"
 fi
+## Go
+if [[ $(command -v go) != "" ]]; then
+    export PATH="$(go env GOPATH)/bin/:$PATH"
+fi
+## Pyenv
 if [[ $(command -v pyenv) != "" ]]; then
     zsh-defer eval "$(pyenv init --path)"
     zsh-defer eval "$(pyenv init -)"
 fi
+## Starship
+eval "$(starship init zsh)"
 
 # History
+bindkey -v
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 export HISTORY_SUBSTRING_SEARCH_FUZZY=1
@@ -82,16 +105,3 @@ setopt EXTENDED_HISTORY
 
 # Options
 setopt auto_cd
-
-# Variables
-export PATH="$HOME/.cargo/bin:$PATH"
-export fpath=($HOME/.zfunc $fpath)
-if [[ -f ~/.proxy ]]; then
-    proxy=`cat ~/.proxy`
-    export ALL_PROXY=$proxy
-    export all_proxy=$proxy
-    export HTTP_PROXY=$proxy
-    export http_proxy=$proxy
-    export HTTPS_PROXY=$proxy
-    export https_proxy=$proxy
-fi
