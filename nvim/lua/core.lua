@@ -6,7 +6,6 @@ augroup END]]
 vim.cmd [[augroup search
     autocmd!
     autocmd InsertEnter * set nohlsearch
-    autocmd InsertLeave * set hlsearch
 augroup END]]
 vim.cmd [[autocmd VimEnter * highlight CursorI guibg=black]]
 function EnableCurosrline()

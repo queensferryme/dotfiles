@@ -14,7 +14,7 @@ function setup_goto_preview()
     map('gpr', ':lua require("goto-preview").goto_preview_references()<CR>')
     require('goto-preview').setup {
         border = { '↖', '─', '╮', '│', '╯', '─', '╰', '│' },
-        post_open_hook = function (bufnr, window)
+        post_open_hook = function ()
             vim.bo.modifiable = false
             vim.wo.number = false
             vim.wo.relativenumber = false
@@ -23,18 +23,20 @@ function setup_goto_preview()
 end
 
 function setup_lsp()
-    local coq = require('coq')
+    local language = require('plugins.language')
     local map = require('utils').map
+    local opts = {
+        on_attach = function (client, bufnr)
+            map('ghh', ':Lspsaga hover_doc<CR>')
+            map('grn', ':Lspsaga rename<CR>')
+        end,
+    }
     require('nvim-lsp-installer').on_server_ready(function (server)
-        server:setup(coq.lsp_ensure_capabilities {
-            on_attach = function (client, bufnr)
-                map('ghh', ':Lspsaga hover_doc<CR>')
-                map('grn', ':Lspsage rename<CR>')
-            end,
-            flags = {
-                debounce_text_changes = 150,
-            },
-        })
+        if server.name == 'rust_analyzer' then
+            language.lsp_rust_analyzer(server, opts)
+        else
+            language.lsp_any(server, opts)
+        end
     end)
 end
 

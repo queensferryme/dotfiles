@@ -62,36 +62,45 @@ require('packer').startup(function()
     -- git
     use {
         'APZelos/blamer.nvim',
-        config = function() require('plugins.git').git_blame() end,
+        config = require('plugins.git').git_blame,
     }
     use {
         'kdheepak/lazygit.nvim',
-        config = function() require('plugins.git').lazygit() end,
+        config = require('plugins.git').lazygit,
     }
     use {
         'mhinz/vim-signify',
-        config = function() require('plugins.git').git_signs() end,
+        config = require('plugins.git').git_signs,
         requires = 'nvim-lua/plenary.nvim',
+    }
+
+    -- language
+    ---- rust
+    use 'rust-lang/rust.vim'
+    use {
+        'simrat39/rust-tools.nvim',
+        after = 'nvim-lspconfig',
+        config = require('plugins.language').rust,
     }
 
     -- miscellany
     use 'editorconfig/editorconfig-vim'
     use {
         'lukas-reineke/indent-blankline.nvim',
-        config = function() require('plugins.miscellany').indent() end,
+        config = require('plugins.miscellany').indent,
     }
     use {
         'numToStr/Comment.nvim',
-        config = function() require('plugins.miscellany').comment() end,
+        config = require('plugins.miscellany').comment,
     }
     use {
         'Pocco81/AutoSave.nvim',
-        config = function() require('plugins.miscellany').autosave() end,
+        config = require('plugins.miscellany').autosave,
     }
     use {
         'projekt0n/github-nvim-theme',
         after = "lualine.nvim",
-        config = function() require('plugins.miscellany').theme() end,
+        config = require('plugins.miscellany').theme,
     }
     use 'wakatime/vim-wakatime'
 
@@ -107,13 +116,13 @@ require('packer').startup(function()
     use {
         'nvim-lualine/lualine.nvim',
         after = 'nvim-gps',
-        config = function() require('plugins.statusline').lualine() end,
+        config = require('plugins.statusline').lualine,
         requires = 'kyazdani42/nvim-web-devicons',
     }
     use {
         "SmiteshP/nvim-gps",
         after = 'nvim-treesitter',
-        config = function() require('plugins.statusline').gps() end,
+        config = require('plugins.statusline').gps,
         requires = "nvim-treesitter/nvim-treesitter"
     }
 
