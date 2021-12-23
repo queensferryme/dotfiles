@@ -1,6 +1,4 @@
-local dashboard = require('alpha.themes.dashboard')
-
-vim.cmd [[autocmd FileType alpha setlocal nocursorline]]
+local dashboard = require "alpha.themes.dashboard"
 
 dashboard.section.header.val = {
     "                                                     ",
@@ -13,4 +11,4 @@ dashboard.section.header.val = {
     "                                                     ",
 }
 
-require('alpha').setup(dashboard.opts)
+require("alpha").setup(dashboard.opts)

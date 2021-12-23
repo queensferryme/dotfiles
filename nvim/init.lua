@@ -1,2 +1,3 @@
-require('core')
-require('plugins')
+require("core")
+require("plugins")
+require("utils")
