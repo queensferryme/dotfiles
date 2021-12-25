@@ -19,6 +19,7 @@ M.lsp = function()
             map("gpi", "<Cmd>lua require('telescope.builtin').lsp_implementations { jump_type = 'never' }<CR>")
             map("gpr", "<Cmd>Telescope lsp_references<CR>")
             map("gps", "<Cmd>Telescope lsp_document_symbols<CR>")
+            require("illuminate").on_attach(client)
         end,
     }
     require("nvim-lsp-installer").on_server_ready(function(server)

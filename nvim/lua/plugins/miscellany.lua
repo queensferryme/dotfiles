@@ -13,6 +13,11 @@ M.comment = function()
     }
 end
 
+M.illuminate = function()
+    vim.g.Illuminate_delay = 500
+    vim.g.Illuminate_ftblacklist = { "alpha", "floaterm", "NvimTree", "packer", "qf" }
+end
+
 M.indent = function()
     vim.opt.colorcolumn = "99999"
 

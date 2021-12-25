@@ -8,10 +8,10 @@ end
 
 M.git_signs = function()
     local map = require("utils").map
-    map("ggd", "<Cmd>SignifyHunkDiff<CR>")
-    map("ggj", "<Plug>(signify-next-hunk)")
-    map("ggk", "<Plug>(signify-prev-hunk)")
-    map("ggu", "<Cmd>SignifyHunkUndo<CR>")
+    map("ghd", "<Cmd>SignifyHunkDiff<CR>")
+    map("ghj", "<plug>(signify-next-hunk)", {})
+    map("ghk", "<plug>(signify-prev-hunk)", {})
+    map("ghu", "<Cmd>SignifyHunkUndo<CR>")
 
     vim.g.signify_sign_add = "+"
     vim.g.signify_sign_delete = "⨯"

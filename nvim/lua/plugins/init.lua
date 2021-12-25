@@ -93,6 +93,10 @@ require("packer").startup(function()
         after = "lualine.nvim",
         config = require("plugins.miscellany").theme,
     }
+    use {
+        "RRethy/vim-illuminate",
+        config = require("plugins.miscellany").illuminate,
+    }
     use "wakatime/vim-wakatime"
 
     -- nvim-tree
