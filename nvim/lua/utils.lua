@@ -22,10 +22,14 @@ end
 M.format = vim.lsp.buf.formatting
 
 M.map = function(k, v, opts)
+    M.mmap("n", k, v, opts)
+end
+
+M.mmap = function(mode, k, v, opts)
     if opts == nil then
         opts = { noremap = true }
     end
-    vim.api.nvim_set_keymap("n", k, v, opts)
+    vim.api.nvim_set_keymap(mode, k, v, opts)
 end
 
 M.readonly = function()
