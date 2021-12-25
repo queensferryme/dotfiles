@@ -4,6 +4,7 @@ M.autosave = function()
     require("autosave").setup {
         enabled = true,
         execution_message = "",
+        debounce_delay = 60000,
     }
 end
 

@@ -19,6 +19,10 @@ M.cursorline = function(enable)
     end
 end
 
+M.esc = function(cmd)
+    return vim.api.nvim_replace_termcodes(cmd, true, false, true)
+end
+
 M.format = vim.lsp.buf.formatting
 
 M.map = function(k, v, opts)

@@ -99,6 +99,14 @@ require("packer").startup(function()
     }
     use "wakatime/vim-wakatime"
 
+    -- moving
+    use {
+        "abecodes/tabout.nvim",
+        after = "coq_nvim",
+        config = require("plugins.moving").tabout,
+        wants = "nvim-treesitter",
+    }
+
     -- nvim-tree
     use {
         "kyazdani42/nvim-tree.lua",

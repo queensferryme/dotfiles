@@ -3,25 +3,26 @@ local M = {}
 M.autopair = function()
     require("nvim-autopairs").setup { map_bs = false }
 
-    vim.cmd [[autocmd BufEnter * lua require('utils').mmap("i", "<BS>", "v:lua.BS()", { expr = true, noremap = true })]]
-    vim.cmd [[autocmd BufEnter * lua require('utils').mmap("i", "<CR>", "v:lua.CR()", { expr = true, noremap = true })]]
+    vim.cmd [[autocmd BufEnter * lua require("utils").mmap("i", "<BS>", "v:lua.BS()", { expr = true, noremap = true })]]
+    vim.cmd [[autocmd BufEnter * lua require("utils").mmap("i", "<CR>", "v:lua.CR()", { expr = true, noremap = true })]]
 end
--- nvim-autopairs key-bind functions
 _G.BS = function()
+    local esc = require("utils").esc
     local pairs = require "nvim-autopairs"
     if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info({ "mode" }).mode == "eval" then
-        return pairs.esc "<C-e>" .. pairs.autopairs_bs()
+        return esc "<C-e>" .. pairs.autopairs_bs()
     else
         return pairs.autopairs_bs()
     end
 end
 _G.CR = function()
+    local esc = require("utils").esc
     local pairs = require "nvim-autopairs"
     if vim.fn.pumvisible() ~= 0 then
         if vim.fn.complete_info({ "selected" }).selected ~= -1 then
-            return pairs.esc "<C-y>"
+            return esc "<C-y>"
         else
-            return pairs.esc "<C-e>" .. pairs.autopairs_cr()
+            return esc "<C-e>" .. pairs.autopairs_cr()
         end
     else
         return pairs.autopairs_cr()
