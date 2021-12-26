@@ -106,6 +106,11 @@ require("packer").startup(function()
         config = require("plugins.moving").tabout,
         wants = "nvim-treesitter",
     }
+    use {
+        "phaazon/hop.nvim",
+        branch = "v1",
+        config = require("plugins.moving").hop,
+    }
 
     -- nvim-tree
     use {
