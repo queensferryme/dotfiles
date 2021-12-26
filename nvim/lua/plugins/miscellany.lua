@@ -4,7 +4,7 @@ M.autosave = function()
     require("autosave").setup {
         enabled = true,
         execution_message = "",
-        debounce_delay = 60000,
+        debounce_delay = 30000,
     }
 end
 
@@ -20,6 +20,7 @@ M.illuminate = function()
 end
 
 M.indent = function()
+    vim.g.indent_blankline_filetype_exclude = { "packer" }
     vim.opt.colorcolumn = "99999"
 
     -- TODO: https://github.com/lukas-reineke/indent-blankline.nvim/issues/142

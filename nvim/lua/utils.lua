@@ -23,6 +23,10 @@ M.esc = function(cmd)
     return vim.api.nvim_replace_termcodes(cmd, true, false, true)
 end
 
+M.feedkeys = function(cmd)
+    vim.api.nvim_feedkeys(M.esc(cmd), "", true)
+end
+
 M.format = vim.lsp.buf.formatting
 
 M.map = function(k, v, opts)

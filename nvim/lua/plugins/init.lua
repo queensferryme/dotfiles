@@ -18,18 +18,21 @@ require("packer").startup(function()
 
     -- completion
     use {
-        "ms-jpq/coq_nvim",
-        branch = "coq",
-        config = require("plugins.completion").coq,
-        event = "VimEnter",
+        "hrsh7th/nvim-cmp",
+        config = require("plugins.completion").cmp,
         requires = {
-            "ms-jpq/coq.artifacts",
-            branch = "artifacts",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-vsnip",
+            "hrsh7th/vim-vsnip",
+            "onsails/lspkind-nvim",
         },
     }
     use {
         "neovim/nvim-lspconfig",
-        after = "coq_nvim",
+        after = "nvim-cmp",
         config = require("plugins.completion").lsp,
         requires = "williamboman/nvim-lsp-installer",
     }
@@ -43,6 +46,7 @@ require("packer").startup(function()
     }
     use {
         "windwp/nvim-autopairs",
+        after = "nvim-cmp",
         config = require("plugins.completion").autopair,
     }
 
@@ -102,7 +106,7 @@ require("packer").startup(function()
     -- moving
     use {
         "abecodes/tabout.nvim",
-        after = "coq_nvim",
+        after = "nvim-cmp",
         config = require("plugins.moving").tabout,
         wants = "nvim-treesitter",
     }

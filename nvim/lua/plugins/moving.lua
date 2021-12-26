@@ -5,25 +5,6 @@ M.tabout = function()
         tabkey = "",
         backwards_tabkey = "",
     }
-
-    vim.cmd [[autocmd BufEnter * lua require("utils").mmap("i", "<Tab>", "v:lua.Tabout()", { expr = true })]]
-    vim.cmd [[autocmd BufEnter * lua require("utils").mmap("i", "<S-Tab>", "v:lua.TaboutBack()", { expr = true })]]
-end
-_G.Tabout = function()
-    local esc = require("utils").esc
-    if vim.fn.pumvisible() ~= 0 then
-        return esc "<C-n>"
-    else
-        return esc "<Plug>(Tabout)"
-    end
-end
-_G.TaboutBack = function()
-    local esc = require("utils").esc
-    if vim.fn.pumvisible() ~= 0 then
-        return esc "<C-p>"
-    else
-        return esc "<Plug>(TaboutBack)"
-    end
 end
 
 M.hop = function()
@@ -33,7 +14,7 @@ M.hop = function()
         return "<Cmd>lua require('hop')."
             .. action
             .. "({ direction = "
-            .. tostring(direction or "require('hop.hint').HintDirection." .. direction)
+            .. tostring(direction and "require('hop.hint').HintDirection." .. direction)
             .. ", current_line_only = "
             .. tostring(current_line_only)
             .. ", inclusive_jump = "

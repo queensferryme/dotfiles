@@ -1,39 +1,84 @@
 local M = {}
 
 M.autopair = function()
-    require("nvim-autopairs").setup { map_bs = false }
-
-    vim.cmd [[autocmd BufEnter * lua require("utils").mmap("i", "<BS>", "v:lua.BS()", { expr = true, noremap = true })]]
-    vim.cmd [[autocmd BufEnter * lua require("utils").mmap("i", "<CR>", "v:lua.CR()", { expr = true, noremap = true })]]
-end
-_G.BS = function()
-    local esc = require("utils").esc
-    local pairs = require "nvim-autopairs"
-    if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info({ "mode" }).mode == "eval" then
-        return esc "<C-e>" .. pairs.autopairs_bs()
-    else
-        return pairs.autopairs_bs()
-    end
-end
-_G.CR = function()
-    local esc = require("utils").esc
-    local pairs = require "nvim-autopairs"
-    if vim.fn.pumvisible() ~= 0 then
-        if vim.fn.complete_info({ "selected" }).selected ~= -1 then
-            return esc "<C-y>"
-        else
-            return esc "<C-e>" .. pairs.autopairs_cr()
-        end
-    else
-        return pairs.autopairs_cr()
-    end
+    require("nvim-autopairs").setup {}
+    require("cmp").event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done {})
 end
 
-M.coq = function()
-    vim.cmd [[COQnow --shut-up]]
+M.cmp = function()
+    vim.opt.completeopt = "menu,menuone,noselect"
+
+    local cmp = require "cmp"
+    local feedkeys = require("utils").feedkeys
+    cmp.setup {
+        snippet = {
+            expand = function(args)
+                vim.fn["vsnip#anonymous"](args.body)
+            end,
+        },
+        mapping = {
+            ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+            ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+            ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+            ["<C-y>"] = cmp.config.disable,
+            ["<C-e>"] = cmp.mapping {
+                i = cmp.mapping.abort(),
+                c = cmp.mapping.close(),
+            },
+            ["<CR>"] = cmp.mapping.confirm { select = true },
+            ["<Tab>"] = cmp.mapping(function()
+                if cmp.visible() then
+                    cmp.select_next_item()
+                elseif vim.fn["vsnip#available"](1) == 1 then
+                    feedkeys "<Plug>(vsnip-expand-or-jump)"
+                else
+                    feedkeys "<Plug>(Tabout)"
+                end
+            end, { "i", "s" }),
+            ["<S-Tab>"] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+                    feedkeys "<Plug>(vsnip-jump-prev)"
+                else
+                    feedkeys "<Plug>(TaboutBack)"
+                end
+            end, { "i", "s" }),
+        },
+        sources = cmp.config.sources {
+            { name = "nvim_lsp" },
+            { name = "vsnip" },
+            { name = "buffer" },
+        },
+        formatting = {
+            format = require("lspkind").cmp_format {
+                with_text = true,
+                maxwidth = 35,
+            },
+        },
+    }
+    cmp.setup.cmdline("/", {
+        sources = {
+            { name = "buffer" },
+        },
+    })
+    cmp.setup.cmdline(":", {
+        sources = cmp.config.sources {
+            { name = "path" },
+            { name = "cmdline" },
+        },
+    })
 end
 
 M.lsp = function()
+    vim.diagnostic.config {
+        virtual_text = true,
+        signs = true,
+        underline = true,
+        update_in_insert = true,
+        severity_sort = true,
+    }
+
     local language = require "plugins.language"
     local map = require("utils").map
     local opts = {
