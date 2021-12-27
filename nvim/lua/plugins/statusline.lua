@@ -3,11 +3,11 @@ local M = {}
 M.gps = function()
     require("nvim-gps").setup {
         icons = {
-            ["class-name"] = " ",
+            ["class-name"] = "ﴯ ",
             ["function-name"] = " ",
             ["method-name"] = " ",
-            ["container-name"] = " ",
-            ["tag-name"] = " ",
+            ["container-name"] = " ",
+            ["tag-name"] = "ﰠ ",
         },
         depth = 3,
     }
