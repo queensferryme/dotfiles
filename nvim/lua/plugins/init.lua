@@ -127,6 +127,7 @@ require("packer").startup(function()
     }
 
     -- status line
+    use "arkav/lualine-lsp-progress"
     use {
         "nvim-lualine/lualine.nvim",
         after = "nvim-gps",

@@ -73,6 +73,15 @@ M.lualine = function()
         separator = { left = "", right = "" },
     }
 
+    local lsp_progress_component = {
+        "lsp_progress",
+        display_components = {
+            "lsp_client_name",
+            "spinner",
+            { "title", "percentage", "message" },
+        },
+    }
+
     local mode_component = {
         "mode",
         separator = { left = "", right = "" },
@@ -110,6 +119,7 @@ M.lualine = function()
                 "filename",
                 floaterm_component,
                 gps_component,
+                lsp_progress_component,
             },
             lualine_x = {
                 "encoding",
