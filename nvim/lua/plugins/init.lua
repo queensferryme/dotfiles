@@ -143,11 +143,20 @@ require("packer").startup(function()
 
     -- telescope
     use {
+        "ahmedkhalf/project.nvim",
+        after = "telescope.nvim",
+        config = require("plugins.telescope").project,
+    }
+    use {
         "nvim-telescope/telescope.nvim",
-        config = function()
-            require "plugins.telescope"
-        end,
+        config = require("plugins.telescope").telescope,
         requires = "nvim-lua/plenary.nvim",
+    }
+    use {
+        "nvim-telescope/telescope-frecency.nvim",
+        after = "telescope.nvim",
+        config = require("plugins.telescope").frecency,
+        requires = "tami5/sqlite.lua",
     }
 
     -- terminal
