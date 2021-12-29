@@ -23,7 +23,7 @@ dashboard.section.buttons.val = {
 
 dashboard.section.footer.val = {
     "",
-    "  " .. #vim.tbl_keys(packer_plugins) .. " plugins loaded",
+    "  " .. #vim.tbl_keys(packer_plugins) .. " plugins installed",
 }
 
 require("alpha").setup(dashboard.opts)

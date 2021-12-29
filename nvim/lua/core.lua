@@ -1,5 +1,4 @@
 vim.cmd [[autocmd VimEnter * highlight CursorI guibg=black]]
-vim.cmd [[syntax on]]
 
 vim.g.mapleader = " "
 

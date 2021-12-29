@@ -1,3 +1,5 @@
-require("core")
-require("plugins")
-require("utils")
+require "impatient"
+
+require "core"
+require "plugins"
+require "utils"

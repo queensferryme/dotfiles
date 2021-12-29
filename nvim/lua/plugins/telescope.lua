@@ -17,13 +17,8 @@ M.project = function()
     require("telescope").load_extension "projects"
 end
 
-M.telescope = function()
-    local map = require("utils").map
-    map("<Leader>ff", "<Cmd>Telescope find_files<cr>")
-    map("<Leader>fg", "<Cmd>Telescope live_grep<cr>")
-    map("<Leader>fr", "<Cmd>Telescope frecency<cr>")
-    map("<Leader>fp", "<Cmd>Telescope projects<cr>")
-
+M.telescope = {}
+M.telescope.config = function()
     require("telescope").setup {
         defaults = {
             layout_config = {
@@ -37,6 +32,13 @@ M.telescope = function()
             lsp_document_symbols = { theme = "dropdown" },
         },
     }
+end
+M.telescope.setup = function()
+    local map = require("utils").map
+    map("<Leader>ff", "<Cmd>Telescope find_files<cr>")
+    map("<Leader>fg", "<Cmd>Telescope live_grep<cr>")
+    map("<Leader>fr", "<Cmd>Telescope frecency<cr>")
+    map("<Leader>fp", "<Cmd>Telescope projects<cr>")
 end
 
 return M

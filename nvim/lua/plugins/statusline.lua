@@ -28,7 +28,10 @@ M.lualine = function()
     local diff_component = {
         "diff",
         source = function()
-            local stats = vim.call "sy#repo#get_stats"
+            local ok, stats = pcall(vim.call, "sy#repo#get_stats")
+            if not ok then
+                stats = { 0, 0, 0 }
+            end
             return {
                 added = stats[1],
                 modified = stats[2],
@@ -48,8 +51,8 @@ M.lualine = function()
 
     local floaterm_component = {
         function()
-            local terminals = vim.call "floaterm#buflist#gather"
-            if #terminals <= 1 then
+            local ok, terminals = pcall(vim.call, "floaterm#buflist#gather")
+            if not ok or #terminals <= 1 then
                 return ""
             end
             local terminal = vim.call "floaterm#buflist#curr"

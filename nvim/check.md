@@ -1,1 +1,0 @@
-- packer.nvim: lazy load, performance, sequencing, etc;

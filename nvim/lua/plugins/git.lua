@@ -20,11 +20,13 @@ M.git_signs = function()
     vim.g.signify_sign_change_delete = "⨱"
 end
 
-M.lazygit = function()
+M.lazygit = {}
+M.lazygit.config = function()
+    vim.g.lazygit_floating_window_winblend = 0
+end
+M.lazygit.setup = function()
     local map = require("utils").map
     map("<Leader>gg", "<Cmd>LazyGit<CR>")
-
-    vim.g.lazygit_floating_window_winblend = 0
 end
 
 return M
