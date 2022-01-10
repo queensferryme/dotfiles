@@ -1,6 +1,5 @@
 vim.cmd [[autocmd BufWinEnter,WinEnter * lua require("utils").cursorline(true)]]
 vim.cmd [[autocmd WinLeave * lua require("utils").cursorline(false)]]
-vim.cmd [[autocmd BufWritePost * lua require("utils").format()]]
 vim.cmd [[autocmd BufEnter * lua require("utils").readonly()]]
 
 local M = {}
@@ -26,8 +25,6 @@ end
 M.feedkeys = function(cmd)
     vim.api.nvim_feedkeys(M.esc(cmd), "", true)
 end
-
-M.format = vim.lsp.buf.formatting
 
 M.map = function(k, v, opts)
     M.mmap("n", k, v, opts)
