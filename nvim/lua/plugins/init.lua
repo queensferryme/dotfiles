@@ -64,15 +64,16 @@ require("packer").startup(function()
 
     -- git
     use {
-        "kdheepak/lazygit.nvim",
-        cmd = "LazyGit",
-        config = require("plugins.git").lazygit.config,
-        setup = require("plugins.git").lazygit.setup,
-    }
-    use {
         "lewis6991/gitsigns.nvim",
         config = require("plugins.git").gitsigns,
         requires = "nvim-lua/plenary.nvim",
+    }
+    use {
+        "sindrets/diffview.nvim",
+        cmd = "Diffview*",
+        config = require("plugins.git").diffview.config,
+        requires = "nvim-lua/plenary.nvim",
+        setup = require("plugins.git").diffview.setup,
     }
 
     -- language
