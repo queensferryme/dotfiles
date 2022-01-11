@@ -14,6 +14,11 @@ M.gps = function()
 end
 
 M.lualine = function()
+    local branch_component = {
+        "b:gitsigns_head",
+        icon = "",
+    }
+
     local diagnostics_component = {
         "diagnostics",
         colored = true,
@@ -23,15 +28,14 @@ M.lualine = function()
     local diff_component = {
         "diff",
         source = function()
-            local ok, stats = pcall(vim.call, "sy#repo#get_stats")
-            if not ok then
-                stats = { 0, 0, 0 }
+            local status = vim.b.gitsigns_status_dict
+            if status then
+                return {
+                    added = status.added,
+                    modified = status.changed,
+                    removed = status.removed,
+                }
             end
-            return {
-                added = stats[1],
-                modified = stats[2],
-                removed = stats[3],
-            }
         end,
     }
 
@@ -112,7 +116,7 @@ M.lualine = function()
         sections = {
             lualine_a = { mode_component },
             lualine_b = {
-                "branch",
+                branch_component,
                 diff_component,
                 diagnostics_component,
             },

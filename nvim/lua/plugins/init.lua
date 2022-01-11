@@ -64,18 +64,14 @@ require("packer").startup(function()
 
     -- git
     use {
-        "APZelos/blamer.nvim",
-        config = require("plugins.git").git_blame,
-    }
-    use {
         "kdheepak/lazygit.nvim",
         cmd = "LazyGit",
         config = require("plugins.git").lazygit.config,
         setup = require("plugins.git").lazygit.setup,
     }
     use {
-        "mhinz/vim-signify",
-        config = require("plugins.git").git_signs,
+        "lewis6991/gitsigns.nvim",
+        config = require("plugins.git").gitsigns,
         requires = "nvim-lua/plenary.nvim",
     }
 

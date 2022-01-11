@@ -1,23 +1,30 @@
 local M = {}
 
-M.git_blame = function()
-    vim.g.blamer_enabled = true
-    vim.g.blamer_relative_time = true
-    vim.g.blamer_show_in_visual_modes = false
-end
-
-M.git_signs = function()
-    local map = require("utils").map
-    map("ghd", "<Cmd>SignifyHunkDiff<CR>")
-    map("ghj", "<plug>(signify-next-hunk)", {})
-    map("ghk", "<plug>(signify-prev-hunk)", {})
-    map("ghu", "<Cmd>SignifyHunkUndo<CR>")
-
-    vim.g.signify_sign_add = "+"
-    vim.g.signify_sign_delete = "⨯"
-    vim.g.signify_sign_delete_first_line = "⨯̄"
-    vim.g.signify_sign_change = "±"
-    vim.g.signify_sign_change_delete = "⨱"
+M.gitsigns = function()
+    require("gitsigns").setup {
+        current_line_blame = true,
+        current_line_blame_formatter_opts = {
+            relative_time = true,
+        },
+        keymaps = {
+            noremap = true,
+            ["n ghd"] = "<Cmd>Gitsigns preview_hunk<CR>",
+            ["n ghj"] = "<Cmd>Gitsigns next_hunk<CR>",
+            ["n ghk"] = "<Cmd>Gitsigns prev_hunk<CR>",
+            ["n ghr"] = "<Cmd>Gitsigns reset_hunk<CR>",
+            ["v ghr"] = ":Gitsigns reset_hunk<CR>",
+            ["n ghR"] = "<Cmd>Gitsigns reset_buffer<CR>",
+            ["n ghs"] = "<Cmd>Gitsigns stage_hunk<CR>",
+            ["v ghs"] = ":Gitsigns stage_hunk<CR>",
+            ["n ghS"] = "<Cmd>Gitsigns stage_buffer<CR>",
+            -- hunk text objects
+            ['o ih'] = ':<C-U>Gitsigns select_hunk<CR>',
+            ['x ih'] = ':<C-U>Gitsigns select_hunk<CR>'
+        },
+        preview_config = {
+            border = "rounded",
+        },
+    }
 end
 
 M.lazygit = {}
