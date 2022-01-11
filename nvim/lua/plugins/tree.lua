@@ -30,13 +30,13 @@ M.tree.config = function()
         },
         view = {
             width = function()
-                local winwidth = vim.fn.winwidth(0)
-                if winwidth <= 100 then
+                local columns = vim.go.columns
+                if columns <= 100 then
                     return 30
-                elseif winwidth <= 200 then
+                elseif columns <= 200 then
                     return 45
                 else
-                    return 60
+                    return 50
                 end
             end,
             hide_root_folder = true,

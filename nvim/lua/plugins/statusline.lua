@@ -14,11 +14,6 @@ M.gps = function()
 end
 
 M.lualine = function()
-    vim.cmd [[autocmd VimEnter * highlight StatusLine guibg=none]]
-    vim.cmd [[autocmd VimEnter * highlight StatusLineNC guibg=none]]
-
-    local gps = require "nvim-gps"
-
     local diagnostics_component = {
         "diagnostics",
         colored = true,
@@ -49,21 +44,7 @@ M.lualine = function()
         },
     }
 
-    local floaterm_component = {
-        function()
-            local ok, terminals = pcall(vim.call, "floaterm#buflist#gather")
-            if not ok or #terminals <= 1 then
-                return ""
-            end
-            local terminal = vim.call "floaterm#buflist#curr"
-            local index = vim.fn.index(terminals, terminal) + 1
-            return "[" .. index .. "/" .. #terminals .. "] "
-        end,
-        cond = function()
-            return vim.bo.filetype == "floaterm"
-        end,
-    }
-
+    local gps = require "nvim-gps"
     local gps_component = {
         gps.get_location,
         cond = gps.is_available,
@@ -88,6 +69,23 @@ M.lualine = function()
     local mode_component = {
         "mode",
         separator = { left = "", right = "" },
+    }
+
+    local floaterm_extension = {
+        sections = {
+            lualine_a = {
+                {
+                    function()
+                        local terminals = vim.call "floaterm#buflist#gather"
+                        local terminal = vim.call "floaterm#buflist#curr"
+                        local index = vim.fn.index(terminals, terminal) + 1
+                        return "Floaterm #[" .. index .. "/" .. #terminals .. "]"
+                    end,
+                    separator = { left = "", right = "" },
+                },
+            },
+        },
+        filetypes = { "floaterm" },
     }
 
     local nvim_tree_extension = {
@@ -120,7 +118,6 @@ M.lualine = function()
             },
             lualine_c = {
                 "filename",
-                floaterm_component,
                 gps_component,
                 lsp_progress_component,
             },
@@ -133,8 +130,8 @@ M.lualine = function()
             lualine_z = { location_component },
         },
         extensions = {
+            floaterm_extension,
             nvim_tree_extension,
-            "toggleterm",
         },
     }
 end
