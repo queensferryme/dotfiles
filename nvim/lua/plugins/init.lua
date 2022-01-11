@@ -128,6 +128,32 @@ require("packer").startup(function()
         setup = require("plugins.moving").hop.setup,
     }
 
+    -- search
+    use {
+        "rktjmp/highlight-current-n.nvim",
+        config = require("plugins.search").highlight_current_n,
+    }
+    use {
+        "nvim-telescope/telescope.nvim",
+        cmd = "Telescope",
+        config = require("plugins.search").telescope.config,
+        requires = {
+            {
+                "ahmedkhalf/project.nvim",
+                after = "telescope.nvim",
+                config = require("plugins.search").telescope.projects,
+            },
+            "nvim-lua/plenary.nvim",
+            {
+                "nvim-telescope/telescope-frecency.nvim",
+                after = "telescope.nvim",
+                config = require("plugins.search").telescope.frecency,
+                requires = "tami5/sqlite.lua",
+            },
+        },
+        setup = require("plugins.search").telescope.setup,
+    }
+
     -- status line
     use "arkav/lualine-lsp-progress"
     use {
@@ -141,26 +167,6 @@ require("packer").startup(function()
         after = "nvim-treesitter",
         config = require("plugins.statusline").gps,
         requires = "nvim-treesitter/nvim-treesitter",
-    }
-
-    -- telescope
-    use {
-        "ahmedkhalf/project.nvim",
-        after = "telescope.nvim",
-        config = require("plugins.telescope").project,
-    }
-    use {
-        "nvim-telescope/telescope.nvim",
-        cmd = "Telescope",
-        config = require("plugins.telescope").telescope.config,
-        requires = "nvim-lua/plenary.nvim",
-        setup = require("plugins.telescope").telescope.setup,
-    }
-    use {
-        "nvim-telescope/telescope-frecency.nvim",
-        after = "telescope.nvim",
-        config = require("plugins.telescope").frecency,
-        requires = "tami5/sqlite.lua",
     }
 
     -- tree
