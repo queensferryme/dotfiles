@@ -2,7 +2,10 @@ local M = {}
 
 M.tree = {}
 M.tree.config = function()
-    vim.cmd [[autocmd CursorHold,CursorHoldI * :NvimTreeRefresh]]
+    local recycle = require("utils").recycle
+    recycle(1000, 1000, function()
+        vim.api.nvim_command "NvimTreeRefresh"
+    end)
 
     vim.g.nvim_tree_group_empty = 1
     vim.g.nvim_tree_highlight_opened_files = 1

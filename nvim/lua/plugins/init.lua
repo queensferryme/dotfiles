@@ -7,12 +7,27 @@ end
 require("packer").startup(function()
     use "wbthomason/packer.nvim"
 
+    -- appearance
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        event = "CursorHold",
+        config = require("plugins.appearance").indent,
+    }
+    use {
+        "projekt0n/github-nvim-theme",
+        after = "lualine.nvim",
+        config = require("plugins.appearance").theme,
+    }
+    use {
+        "RRethy/vim-illuminate",
+        config = require("plugins.appearance").illuminate,
+        event = "CursorHold",
+    }
+
     -- buffer line
     use {
         "romgrk/barbar.nvim",
-        config = function()
-            require "plugins.bufferline"
-        end,
+        config = require("plugins.bufferline").barbar,
         requires = "kyazdani42/nvim-web-devicons",
     }
 
@@ -56,9 +71,7 @@ require("packer").startup(function()
     -- dashboard
     use {
         "goolord/alpha-nvim",
-        config = function()
-            require "plugins.dashboard"
-        end,
+        config = require("plugins.dashboard").alpha,
         requires = "kyazdani42/nvim-web-devicons",
     }
 
@@ -66,6 +79,7 @@ require("packer").startup(function()
     use {
         "lewis6991/gitsigns.nvim",
         config = require("plugins.git").gitsigns,
+        event = "CursorHold",
         requires = "nvim-lua/plenary.nvim",
     }
     use {
@@ -85,10 +99,6 @@ require("packer").startup(function()
     use "editorconfig/editorconfig-vim"
     use "lewis6991/impatient.nvim"
     use {
-        "lukas-reineke/indent-blankline.nvim",
-        config = require("plugins.miscellany").indent,
-    }
-    use {
         "numToStr/Comment.nvim",
         config = require("plugins.miscellany").comment,
     }
@@ -97,38 +107,30 @@ require("packer").startup(function()
         config = require("plugins.miscellany").autosave,
     }
     use {
-        "projekt0n/github-nvim-theme",
-        after = "lualine.nvim",
-        config = require("plugins.miscellany").theme,
-    }
-    use {
-        "RRethy/vim-illuminate",
-        config = require("plugins.miscellany").illuminate,
-    }
-    use {
         "wakatime/vim-wakatime",
         event = "CursorHold",
     }
 
-    -- moving
+    -- navigation
     use {
         "abecodes/tabout.nvim",
         after = "nvim-cmp",
-        config = require("plugins.moving").tabout,
+        config = require("plugins.navigation").tabout,
         requires = "nvim-treesitter",
     }
     use {
         "phaazon/hop.nvim",
         branch = "v1",
         cmd = "Hop*",
-        config = require("plugins.moving").hop.config,
-        setup = require("plugins.moving").hop.setup,
+        config = require("plugins.navigation").hop.config,
+        setup = require("plugins.navigation").hop.setup,
     }
 
     -- search
     use {
         "rktjmp/highlight-current-n.nvim",
         config = require("plugins.search").highlight_current_n,
+        event = "CursorHold",
     }
     use {
         "nvim-telescope/telescope.nvim",
@@ -152,18 +154,27 @@ require("packer").startup(function()
     }
 
     -- status line
-    use "arkav/lualine-lsp-progress"
     use {
         "nvim-lualine/lualine.nvim",
         after = "nvim-gps",
         config = require("plugins.statusline").lualine,
-        requires = "kyazdani42/nvim-web-devicons",
+        requires = {
+            "arkav/lualine-lsp-progress",
+            "kyazdani42/nvim-web-devicons",
+        },
     }
     use {
         "SmiteshP/nvim-gps",
         after = "nvim-treesitter",
         config = require("plugins.statusline").gps,
         requires = "nvim-treesitter/nvim-treesitter",
+    }
+
+    -- syntax
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        config = require("plugins.syntax").treesitter,
+        run = ":TSUpdate",
     }
 
     -- tree
@@ -178,16 +189,8 @@ require("packer").startup(function()
     -- terminal
     use {
         "voldikss/vim-floaterm",
-        config = function()
-            require "plugins.terminal"
-        end,
-    }
-
-    -- treesitter
-    use {
-        "nvim-treesitter/nvim-treesitter",
-        config = function()
-            require "plugins.treesitter"
-        end,
+        cmd = "Floaterm*",
+        config = require("plugins.terminal").floaterm.config,
+        setup = require("plugins.terminal").floaterm.setup,
     }
 end)

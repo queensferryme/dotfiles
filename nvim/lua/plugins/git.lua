@@ -5,7 +5,7 @@ M.diffview.config = function()
     vim.opt.fillchars = "diff:╱"
 
     require("diffview").setup {
-        enhanced_diff_hl = false,
+        enhanced_diff_hl = true,
     }
 end
 M.diffview.setup = function()

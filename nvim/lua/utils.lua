@@ -46,4 +46,9 @@ M.readonly = function()
     end
 end
 
+M.recycle = function(offset, period, fn)
+    local timer = vim.loop.new_timer()
+    timer:start(offset, period, vim.schedule_wrap(fn))
+end
+
 return M
