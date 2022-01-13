@@ -2,7 +2,7 @@ local M = {}
 
 M.illuminate = function()
     vim.g.Illuminate_delay = 500
-    vim.g.Illuminate_ftblacklist = { "alpha", "floaterm", "NvimTree", "packer", "qf" }
+    vim.g.Illuminate_ftblacklist = { "alpha", "floaterm", "NvimTree", "Outline", "packer", "qf", "Trouble" }
 end
 
 M.indent = function()
@@ -17,7 +17,7 @@ end
 M.theme = function()
     require("github-theme").setup {
         theme_style = "light",
-        sidebars = { "packer", "terminal" },
+        sidebars = { "Outline", "packer", "qf", "terminal", "Trouble" },
         dark_sidebar = true,
         dark_float = true,
     }

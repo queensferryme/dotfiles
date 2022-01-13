@@ -116,20 +116,23 @@ require("packer").startup(function(use)
         requires = "nvim-treesitter",
     }
     use {
+        "folke/trouble.nvim",
+        cmd = "Trouble*",
+        config = require("plugins.navigation").trouble.config,
+        requires = "kyazdani42/nvim-web-devicons",
+        setup = require("plugins.navigation").trouble.setup,
+    }
+    use {
+        "simrat39/symbols-outline.nvim",
+        cmd = "SymbolsOutline",
+        setup = require("plugins.navigation").symbols,
+    }
+    use {
         "phaazon/hop.nvim",
         branch = "v1",
         cmd = "Hop*",
         config = require("plugins.navigation").hop.config,
         setup = require("plugins.navigation").hop.setup,
-    }
-
-    -- quickfix
-    use {
-        "folke/trouble.nvim",
-        cmd = "Trouble*",
-        config = require("plugins.quickfix").trouble.config,
-        requires = "kyazdani42/nvim-web-devicons",
-        setup = require("plugins.quickfix").trouble.setup,
     }
 
     -- search

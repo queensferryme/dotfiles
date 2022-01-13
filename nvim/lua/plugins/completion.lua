@@ -35,7 +35,7 @@ M.cmp = function()
                     feedkeys "<Plug>(Tabout)"
                 end
             end, { "i", "s" }),
-            ["<S-Tab>"] = cmp.mapping(function(fallback)
+            ["<S-Tab>"] = cmp.mapping(function()
                 if cmp.visible() then
                     cmp.select_prev_item()
                 elseif vim.fn["vsnip#jumpable"](-1) == 1 then
@@ -54,33 +54,7 @@ M.cmp = function()
             format = require("lspkind").cmp_format {
                 with_text = true,
                 maxwidth = 35,
-                symbol_map = {
-                    Text = "",
-                    Method = "",
-                    Function = "",
-                    Constructor = "",
-                    Field = "ﰠ",
-                    Variable = "",
-                    Class = "ﴯ",
-                    Interface = "",
-                    Module = "",
-                    Property = "ﰠ",
-                    Unit = "塞",
-                    Value = "",
-                    Enum = "",
-                    Keyword = "",
-                    Snippet = "",
-                    Color = "",
-                    File = "",
-                    Reference = "",
-                    Folder = "",
-                    EnumMember = "",
-                    Constant = "𝝅",
-                    Struct = "פּ",
-                    Event = "",
-                    Operator = "",
-                    TypeParameter = "ﰠ",
-                },
+                symbol_map = require("utils").symbols,
             },
         },
     }
@@ -126,8 +100,6 @@ M.lsp = function()
             language.lsp_pyright(server, opts)
         elseif server.name == "rust_analyzer" then
             language.lsp_rust_analyzer(server, opts)
-        elseif server.name == "sumneko_lua" then
-            language.lsp_sumneko_lua(server, opts)
         end
     end)
 end

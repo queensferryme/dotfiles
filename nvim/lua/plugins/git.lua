@@ -42,8 +42,8 @@ M.gitsigns = function()
             ["v ghs"] = ":Gitsigns stage_hunk<CR>",
             ["n ghS"] = "<Cmd>Gitsigns stage_buffer<CR>",
             -- hunk text objects
-            ["o ih"] = ":<C-U>Gitsigns select_hunk<CR>",
-            ["x ih"] = ":<C-U>Gitsigns select_hunk<CR>",
+            ["o ah"] = ":<C-U>Gitsigns select_hunk<CR>",
+            ["x ah"] = ":<C-U>Gitsigns select_hunk<CR>",
         },
         preview_config = {
             border = "rounded",

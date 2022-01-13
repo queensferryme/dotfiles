@@ -51,4 +51,32 @@ M.recycle = function(offset, period, fn)
     timer:start(offset, period, vim.schedule_wrap(fn))
 end
 
+M.symbols = {
+    Class = "ﴯ",
+    Color = "",
+    Constant = "𝛑",
+    Constructor = "",
+    Enum = "",
+    EnumMember = "",
+    Event = "",
+    Field = "⟐",
+    File = "",
+    Folder = "",
+    Function = "ƒ",
+    Interface = "",
+    Keyword = "",
+    Method = "",
+    Module = "",
+    Operator = "",
+    Property = "⟐",
+    Reference = "¶",
+    Snippet = "",
+    Struct = "פּ",
+    Text = "",
+    TypeParameter = "𝗧",
+    Unit = "塞",
+    Value = "",
+    Variable = "𝛂",
+}
+
 return M

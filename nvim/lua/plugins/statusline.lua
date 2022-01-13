@@ -106,6 +106,20 @@ M.lualine = function()
         filetypes = { "NvimTree" },
     }
 
+    local symbols_outline_extension = {
+        sections = {
+            lualine_a = {
+                {
+                    function()
+                        return "Outline"
+                    end,
+                    separator = { left = "", right = "" },
+                },
+            },
+        },
+        filetypes = { "Outline" },
+    }
+
     require("lualine").setup {
         options = {
             theme = "github",
@@ -136,6 +150,7 @@ M.lualine = function()
         extensions = {
             floaterm_extension,
             nvim_tree_extension,
+            symbols_outline_extension,
         },
     }
 end
