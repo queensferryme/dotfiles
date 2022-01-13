@@ -173,8 +173,12 @@ require("packer").startup(function()
     -- syntax
     use {
         "nvim-treesitter/nvim-treesitter",
-        config = require("plugins.syntax").treesitter,
+        config = require("plugins.syntax").treesitter.config,
         run = ":TSUpdate",
+    }
+    use {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        config = require("plugins.syntax").treesitter.textobjects,
     }
 
     -- tree
