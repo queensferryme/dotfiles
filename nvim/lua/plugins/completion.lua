@@ -126,6 +126,8 @@ M.lsp = function()
             language.lsp_pyright(server, opts)
         elseif server.name == "rust_analyzer" then
             language.lsp_rust_analyzer(server, opts)
+        elseif server.name == "sumneko_lua" then
+            language.lsp_sumneko_lua(server, opts)
         end
     end)
 end

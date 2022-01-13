@@ -48,4 +48,23 @@ M.lsp_rust_analyzer = function(server, opts)
     server:attach_buffers()
 end
 
+M.lsp_sumneko_lua = function(server, opts)
+    server:setup(get_server_opts(server, opts, {
+        settings = {
+            Lua = {
+                runtime = {
+                    version = "LuaJIT",
+                    path = vim.split(package.path, ";"),
+                },
+                diagnostics = {
+                    globals = { "vim" },
+                },
+                workspace = {
+                    library = vim.api.nvim_get_runtime_file("", true),
+                },
+            },
+        },
+    }))
+end
+
 return M

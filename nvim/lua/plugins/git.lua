@@ -2,7 +2,7 @@ local M = {}
 
 M.diffview = {}
 M.diffview.config = function()
-    vim.opt.fillchars = "diff:╱"
+    vim.opt.fillchars:append "diff:╱"
 
     require("diffview").setup {
         enhanced_diff_hl = true,
@@ -16,7 +16,16 @@ M.diffview.setup = function()
 end
 
 M.gitsigns = function()
+    vim.cmd [[autocmd BufEnter * highlight GitSignsCurrentLineBlame gui=italic]]
+
     require("gitsigns").setup {
+        signs = {
+            add = { text = "┃" },
+            change = { text = "┃" },
+            delete = { text = "┃" },
+            topdelete = { text = "┃" },
+            changedelete = { text = "┃" },
+        },
         current_line_blame = true,
         current_line_blame_formatter_opts = {
             relative_time = true,
@@ -40,8 +49,6 @@ M.gitsigns = function()
             border = "rounded",
         },
     }
-
-    vim.cmd [[autocmd VimEnter * highlight GitSignsCurrentLineBlame gui=italic]]
 end
 
 return M
