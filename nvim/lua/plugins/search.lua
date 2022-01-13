@@ -1,17 +1,18 @@
 local M = {}
 
-M.highlight_current_n = function()
+M.hlslens = function()
     local map = require("utils").map
-    map("n", "<Plug>(highlight-current-n-n)", {})
-    map("N", "<Plug>(highlight-current-n-N)", {})
-    map("*", "*N", {})
+    map("n", "<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>")
+    map("N", "<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>")
+    map("*", "*<Cmd>lua require('hlslens').start()<CR>")
+    map("#", "#<Cmd>lua require('hlslens').start()<CR>")
+    map("g*", "g*<Cmd>lua require('hlslens').start()<CR>")
+    map("g#", "g#<Cmd>lua require('hlslens').start()<CR>")
 
-    vim.cmd [[augroup ClearSearchHL
-        autocmd!
-        autocmd CmdlineEnter /,\? set hlsearch
-        autocmd CmdlineLeave /,\? set nohlsearch
-        autocmd CmdlineLeave /,\? lua require("highlight_current_n")["/,?"]()
-    augroup END]]
+    require("hlslens").setup {
+        calm_down = true,
+        nearest_only = true,
+    }
 end
 
 M.telescope = {}
@@ -47,11 +48,12 @@ M.telescope.projects = function()
 end
 M.telescope.setup = function()
     local map = require("utils").map
+    map("<Leader>fb", "<Cmd>Telescope current_buffer_fuzzy_find<cr>")
     map("<Leader>ff", "<Cmd>Telescope find_files<cr>")
     map("<Leader>fg", "<Cmd>Telescope live_grep<cr>")
+    map("<Leader>fl", "<Cmd>Telescope resume<cr>")
     map("<Leader>fp", "<Cmd>Telescope projects<cr>")
     map("<Leader>fr", "<Cmd>Telescope frecency<cr>")
-    map("<Leader>fs", "<Cmd>Telescope resume<cr>")
 end
 
 return M

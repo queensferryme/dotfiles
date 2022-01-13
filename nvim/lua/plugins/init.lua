@@ -128,8 +128,8 @@ require("packer").startup(function()
 
     -- search
     use {
-        "rktjmp/highlight-current-n.nvim",
-        config = require("plugins.search").highlight_current_n,
+        "kevinhwang91/nvim-hlslens",
+        config = require("plugins.search").hlslens,
         event = "CursorHold",
     }
     use {

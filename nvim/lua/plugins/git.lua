@@ -11,6 +11,7 @@ end
 M.diffview.setup = function()
     local map = require("utils").map
     map("<Leader>gd", "<Cmd>DiffviewOpen<CR>")
+    map("<Leader>gg", "<Cmd>DiffviewClose<CR>")
     map("<Leader>gh", "<Cmd>DiffviewFileHistory<CR>")
 end
 
