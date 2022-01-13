@@ -7,10 +7,4 @@ M.autosave = function()
     }
 end
 
-M.comment = function()
-    require("Comment").setup {
-        ignore = "^%s*$",
-    }
-end
-
 return M

@@ -99,12 +99,9 @@ require("packer").startup(function(use)
     use "editorconfig/editorconfig-vim"
     use "lewis6991/impatient.nvim"
     use {
-        "numToStr/Comment.nvim",
-        config = require("plugins.miscellany").comment,
-    }
-    use {
         "Pocco81/AutoSave.nvim",
         config = require("plugins.miscellany").autosave,
+        event = "CursorHold",
     }
     use {
         "wakatime/vim-wakatime",
@@ -124,6 +121,15 @@ require("packer").startup(function(use)
         cmd = "Hop*",
         config = require("plugins.navigation").hop.config,
         setup = require("plugins.navigation").hop.setup,
+    }
+
+    -- quickfix
+    use {
+        "folke/trouble.nvim",
+        cmd = "Trouble*",
+        config = require("plugins.quickfix").trouble.config,
+        requires = "kyazdani42/nvim-web-devicons",
+        setup = require("plugins.quickfix").trouble.setup,
     }
 
     -- search
@@ -179,6 +185,11 @@ require("packer").startup(function(use)
     use {
         "nvim-treesitter/nvim-treesitter-textobjects",
         config = require("plugins.syntax").treesitter.textobjects,
+    }
+    use {
+        "numToStr/Comment.nvim",
+        config = require("plugins.syntax").comment,
+        event = "CursorHold",
     }
 
     -- tree

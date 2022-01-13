@@ -1,5 +1,11 @@
 local M = {}
 
+M.comment = function()
+    require("Comment").setup {
+        ignore = "^%s*$",
+    }
+end
+
 M.treesitter = {}
 M.treesitter.config = function()
     vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

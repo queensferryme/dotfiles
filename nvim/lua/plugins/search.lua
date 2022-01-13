@@ -48,12 +48,20 @@ M.telescope.projects = function()
 end
 M.telescope.setup = function()
     local map = require("utils").map
-    map("<Leader>fb", "<Cmd>Telescope current_buffer_fuzzy_find<cr>")
-    map("<Leader>ff", "<Cmd>Telescope find_files<cr>")
-    map("<Leader>fg", "<Cmd>Telescope live_grep<cr>")
-    map("<Leader>fl", "<Cmd>Telescope resume<cr>")
-    map("<Leader>fp", "<Cmd>Telescope projects<cr>")
-    map("<Leader>fr", "<Cmd>Telescope frecency<cr>")
+    map("<Leader>fb", "<Cmd>Telescope current_buffer_fuzzy_find<CR>")
+    map("<Leader>ff", "<Cmd>Telescope find_files<CR>")
+    map("<Leader>fg", "<Cmd>Telescope live_grep<CR>")
+    map("<Leader>fl", "<Cmd>Telescope resume<CR>")
+    map("<Leader>fp", "<Cmd>Telescope projects<CR>")
+    map("<Leader>fr", "<Cmd>Telescope frecency<CR>")
+
+    local mmap = require("utils").mmap
+    mmap("t", "<Leader>fb", [[<C-\><C-n><Cmd>Telescope current_buffer_fuzzy_find<CR>]])
+    mmap("t", "<Leader>ff", [[<C-\><C-n><Cmd>Telescope find_files<CR>]])
+    mmap("t", "<Leader>fg", [[<C-\><C-n><Cmd>Telescope live_grep<CR>]])
+    mmap("t", "<Leader>fl", [[<C-\><C-n><Cmd>Telescope resume<CR>]])
+    mmap("t", "<Leader>fp", [[<C-\><C-n><Cmd>Telescope projects<CR>]])
+    mmap("t", "<Leader>fr", [[<C-\><C-n><Cmd>Telescope frecency<CR>]])
 end
 
 return M
