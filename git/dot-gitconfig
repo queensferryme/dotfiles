@@ -1,8 +1,8 @@
 [commit]
     gpgsign = true
 [core]
-    editor = nvim
-    pager = delta --light --keep-plus-minus-markers
+    editor = hx
+    pager = delta --keep-plus-minus-markers
 [delta]
     features = line-numbers
     hunk-header-style = syntax

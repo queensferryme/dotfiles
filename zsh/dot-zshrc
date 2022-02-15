@@ -16,7 +16,6 @@ eval "$(sheldon source)"
 alias cat="bat -p"
 alias md="mkdir -p"
 alias rmrf="rm -rfv"
-alias vim=$(which nvim)
 ## Exa
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -78,7 +77,7 @@ alias gota="go test ./..."
 
 # Applications
 ## Bat
-export BAT_THEME=OneHalfLight
+export BAT_THEME=OneHalfDark
 ## Cargo
 if [[ -d "$HOME/.cargo" ]]; then
     zsh-defer source $HOME/.cargo/env
