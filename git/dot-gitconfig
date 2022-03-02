@@ -1,7 +1,6 @@
 [commit]
     gpgsign = true
 [core]
-    editor = hx
     pager = delta --keep-plus-minus-markers
 [delta]
     features = line-numbers

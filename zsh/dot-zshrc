@@ -1,4 +1,5 @@
 # Initialization
+export EDITOR=vim
 export fpath=($HOME/.zfunc $fpath)
 if [[ -f ~/.proxy ]]; then
     proxy=`cat ~/.proxy`
