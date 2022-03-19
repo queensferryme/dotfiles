@@ -78,7 +78,7 @@ alias gota="go test ./..."
 
 # Applications
 ## Bat
-export BAT_THEME=OneHalfDark
+export BAT_THEME=OneHalfLight
 ## Cargo
 if [[ -d "$HOME/.cargo" ]]; then
     zsh-defer source $HOME/.cargo/env
@@ -91,6 +91,9 @@ fi
 if [[ $(command -v go) != "" ]]; then
     export PATH="$(go env GOPATH)/bin/:$PATH"
 fi
+## N
+export N_PREFIX="$HOME/.n"
+export PATH="$N_PREFIX/bin:$PATH"
 ## Pyenv
 if [[ $(command -v pyenv) != "" ]]; then
     zsh-defer eval "$(pyenv init --path)"

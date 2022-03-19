@@ -9,6 +9,13 @@ if [[ $(command -v brew) != "" ]]; then
     brew cleanup -s
 fi
 
+# Upgrade N
+if [[ $(command -v n) != "" ]]; then
+    echo '========== Upgrading N =========='
+    n lts
+    n prune
+fi
+
 # Upgrade Rust
 if [[ $(command -v rustup) != "" ]]; then
     echo '========== Upgrading Rust =========='
