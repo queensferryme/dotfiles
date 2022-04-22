@@ -13,12 +13,16 @@ use = ["completion.zsh"]
 [plugins.ohmyzsh-plugins]
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
-use = ["{colored-man-pages,extract}/*.plugin.zsh"]
+use = ["{extract,git,golang}/*.plugin.zsh"]
 apply = ["defer"]
 
 [plugins.z]
 github = "rupa/z"
 apply = ["defer"]
+
+[plugins.zfunc]
+local = "~/.zfunc"
+apply = ["fpath"]
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"

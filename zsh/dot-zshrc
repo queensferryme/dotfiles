@@ -1,17 +1,6 @@
 # Initialization
-export EDITOR=vim
-export fpath=($HOME/.zfunc $fpath)
-if [[ -f ~/.proxy ]]; then
-    proxy=`cat ~/.proxy`
-    export ALL_PROXY=$proxy
-    export all_proxy=$proxy
-    export HTTP_PROXY=$proxy
-    export http_proxy=$proxy
-    export HTTPS_PROXY=$proxy
-    export https_proxy=$proxy
-fi
-## Sheldon
 eval "$(sheldon source)"
+
 
 # Aliases
 alias cat="bat -p"
@@ -25,85 +14,43 @@ alias ll="ls --classify --long --time-style=iso"
 alias la="ll --all"
 alias lla="la --git --group --header --links --inode"
 alias lt="ll --level=2 --tree"
-## Git
-alias ga="git add"
-alias gaa="git add --all"
-alias gb="git branch"
-alias gbd="git branch --delete"
-alias gbc="git rev-parse --abbrev-ref HEAD"
-alias gbm="git rev-parse --abbrev-ref origin/HEAD | sed 's@^.*/@@'"
-alias gc="git commit -v"
-alias gc!="git commit -v --amend"
-alias gca="git commit -v --all"
-alias gcl="git clone"
-alias gcm="git checkout \$(gbm)"
-alias gcmsg="git commit -m"
-alias gco="git checkout"
-alias gcp="git cherry-pick"
-alias gd="git diff"
-alias gdh="git diff HEAD"
-alias gdhh="git diff HEAD^"
-alias gds="git diff --staged"
-alias gl="git pull"
-alias glo="git log"
-alias glog="git log --oneline --decorate --graph"
-alias gp="git push"
-alias gpf!="git push --force-with-lease"
-alias gpt="git push && git push --tags"
-alias gpu="git push -u origin \$(gbc)"
-alias gr="git remote"
-alias grv="git remote -v"
-alias grb="git rebase"
-alias grbi="git rebase --interactive"
-alias grh="git reset"
-alias grhh="git reset --hard"
-alias grs="git restore"
-alias grst="git restore --staged"
-alias gst="git status"
-alias gsta="git stash push"
-alias gstd="git stash drop"
-alias gstp="git stash apply"
-alias gsw="git switch"
-alias gswc="git switch --create"
-## Go
-alias gob="go build"
-alias goc="go clean"
-alias gof="go fmt"
-alias gofa="go fmt ./..."
-alias gog="go get"
-alias gom="go mod"
-alias gor="go run"
-alias got="go test"
-alias gota="go test ./..."
 
-# Applications
+
+# Environment
+export EDITOR=vim
+if [[ -f ~/.proxy ]]; then
+    proxy=`cat ~/.proxy`
+    export ALL_PROXY=$proxy
+    export all_proxy=$proxy
+    export HTTP_PROXY=$proxy
+    export http_proxy=$proxy
+    export HTTPS_PROXY=$proxy
+    export https_proxy=$proxy
+fi
 ## Bat
 export BAT_THEME=OneHalfLight
 ## Cargo
-if [[ -d "$HOME/.cargo" ]]; then
-    zsh-defer source $HOME/.cargo/env
-fi
+[[ -d $HOME/.cargo ]] && export PATH="$HOME/.cargo/bin:$PATH"
 ## Direnv
-if [[ $(command -v direnv) != "" ]]; then
-    zsh-defer eval "$(direnv hook zsh)"
-fi
+[[ -x $(command -v direnv) ]] && zsh-defer eval "$(direnv hook zsh)"
 ## Go
-if [[ $(command -v go) != "" ]]; then
-    export PATH="$(go env GOPATH)/bin/:$PATH"
-fi
+[[ -x $(command -v go) ]] && export PATH="$(go env GOPATH)/bin/:$PATH"
 ## N
 export N_PREFIX="$HOME/.n"
-export PATH="$N_PREFIX/bin:$PATH"
+[[ -d $N_PREFIX ]] && export PATH="$N_PREFIX/bin:$PATH"
 ## Pyenv
-if [[ $(command -v pyenv) != "" ]]; then
+if [[ -x $(command -v pyenv) ]]; then
     zsh-defer eval "$(pyenv init --path)"
     zsh-defer eval "$(pyenv init -)"
 fi
-## Starship
+# Starship
 eval "$(starship init zsh)"
 
-# History
+
+# Options
 bindkey -v
+setopt auto_cd
+## History
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 export HISTORY_SUBSTRING_SEARCH_FUZZY=1
@@ -113,6 +60,3 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY_TIME
 setopt EXTENDED_HISTORY
-
-# Options
-setopt auto_cd
