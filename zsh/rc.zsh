@@ -43,7 +43,7 @@ if [[ -x $(command -v pyenv) ]]; then
     zsh-defer eval "$(pyenv init --path)"
     zsh-defer eval "$(pyenv init -)"
 fi
-# Starship
+## Starship
 eval "$(starship init zsh)"
 
 
