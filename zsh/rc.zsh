@@ -1,7 +1,6 @@
 # Initialization
 eval "$(sheldon source)"
 
-
 # Aliases
 alias cat="bat -p"
 alias md="mkdir -p"
@@ -14,7 +13,6 @@ alias ll="ls --classify --long --time-style=iso"
 alias la="ll --all"
 alias lla="la --git --group --header --links --inode"
 alias lt="ll --level=2 --tree"
-
 
 # Environment
 export EDITOR=vim
@@ -31,6 +29,8 @@ fi
 export BAT_THEME=OneHalfLight
 ## Cargo
 [[ -d $HOME/.cargo ]] && export PATH="$HOME/.cargo/bin:$PATH"
+## Delta
+export DELTA_PAGER="less -+X"
 ## Direnv
 [[ -x $(command -v direnv) ]] && zsh-defer eval "$(direnv hook zsh)"
 ## Go
@@ -45,7 +45,6 @@ if [[ -x $(command -v pyenv) ]]; then
 fi
 ## Starship
 eval "$(starship init zsh)"
-
 
 # Options
 bindkey -v
