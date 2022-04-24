@@ -2,7 +2,7 @@
 eval "$(sheldon source)"
 
 # Aliases
-alias cat="bat -p"
+alias bat="bat -p"
 alias md="mkdir -p"
 alias rmrf="rm -rfv"
 alias vim="nvim"
@@ -53,12 +53,19 @@ eval "$(starship init zsh)"
 bindkey -v
 setopt auto_cd
 ## History
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 export SAVEHIST=10000
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt INC_APPEND_HISTORY_TIME
 setopt EXTENDED_HISTORY
+### Search
+autoload -U down-line-or-beginning-search
+autoload -U up-line-or-beginning-search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^[[1;2A' up-line-or-beginning-search
+bindkey '^[[1;2B' down-line-or-beginning-search
+export HISTORY_SUBSTRING_SEARCH_FUZZY=1
+zle -N down-line-or-beginning-search
+zle -N up-line-or-beginning-search
