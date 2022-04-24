@@ -49,17 +49,13 @@ fi
 ## Starship
 eval "$(starship init zsh)"
 
-# Options
+# Keybindings
 bindkey -v
-setopt auto_cd
-## History
-export SAVEHIST=10000
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_REDUCE_BLANKS
-setopt INC_APPEND_HISTORY_TIME
-setopt EXTENDED_HISTORY
-### Search
+bindkey -M vicmd '^[[F' end-of-line
+bindkey -M viins '^[[F' end-of-line
+bindkey -M vicmd '^[[H' beginning-of-line
+bindkey -M viins '^[[H' beginning-of-line
+## Search
 autoload -U down-line-or-beginning-search
 autoload -U up-line-or-beginning-search
 bindkey '^[[A' history-substring-search-up
@@ -69,3 +65,13 @@ bindkey '^[[1;2B' down-line-or-beginning-search
 export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 zle -N down-line-or-beginning-search
 zle -N up-line-or-beginning-search
+
+# Options
+setopt auto_cd
+## History
+export SAVEHIST=10000
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY_TIME
+setopt EXTENDED_HISTORY
