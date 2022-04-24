@@ -5,6 +5,7 @@ eval "$(sheldon source)"
 alias cat="bat -p"
 alias md="mkdir -p"
 alias rmrf="rm -rfv"
+alias vim="nvim"
 ## Exa
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -15,7 +16,9 @@ alias lla="la --git --group --header --links --inode"
 alias lt="ll --level=2 --tree"
 
 # Environment
-export EDITOR=vim
+export EDITOR=nvim
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 if [[ -f ~/.proxy ]]; then
     proxy=`cat ~/.proxy`
     export ALL_PROXY=$proxy
