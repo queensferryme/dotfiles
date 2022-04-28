@@ -35,9 +35,7 @@ export BAT_THEME=OneHalfLight
 ## Delta
 export DELTA_PAGER="less -+X"
 ## Direnv
-[[ -x $(command -v direnv) ]] && zsh-defer eval "$(direnv hook zsh)"
-## Go
-[[ -x $(command -v go) ]] && export PATH="$(go env GOPATH)/bin/:$PATH"
+[[ -x $(command -v direnv) ]] && eval "$(direnv hook zsh)"
 ## N
 export N_PREFIX="$HOME/.n"
 [[ -d $N_PREFIX ]] && export PATH="$N_PREFIX/bin:$PATH"

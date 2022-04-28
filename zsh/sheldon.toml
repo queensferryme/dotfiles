@@ -13,7 +13,7 @@ use = ["completion.zsh"]
 [plugins.ohmyzsh-plugins]
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
-use = ["{extract,git,golang}/*.plugin.zsh"]
+use = ["{extract,git}/*.plugin.zsh"]
 apply = ["defer"]
 
 [plugins.z]
