@@ -2,7 +2,7 @@
 eval "$(sheldon source)"
 
 # Aliases
-alias bat="bat -p"
+alias cat="bat -p"
 alias md="mkdir -p"
 alias rmrf="rm -rfv"
 alias vim="nvim"
@@ -68,8 +68,8 @@ zle -N up-line-or-beginning-search
 setopt auto_cd
 ## History
 export SAVEHIST=10000
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_REDUCE_BLANKS
-setopt INC_APPEND_HISTORY_TIME
 setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_SAVE_NO_DUPS
+setopt INC_APPEND_HISTORY_TIME
