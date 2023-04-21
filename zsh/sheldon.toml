@@ -20,10 +20,6 @@ apply = ["defer"]
 github = "rupa/z"
 apply = ["defer"]
 
-[plugins.zfunc]
-local = "~/.zfunc"
-apply = ["fpath"]
-
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 dir = "src"

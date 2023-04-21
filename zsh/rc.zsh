@@ -30,8 +30,6 @@ if [[ -f ~/.proxy ]]; then
 fi
 ## Bat
 export BAT_THEME=OneHalfLight
-## Cargo
-[[ -d $HOME/.cargo ]] && export PATH="$HOME/.cargo/bin:$PATH"
 ## Delta
 export DELTA_PAGER="less -+X"
 ## Direnv
