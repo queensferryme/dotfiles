@@ -34,9 +34,6 @@ export BAT_THEME=OneHalfLight
 export DELTA_PAGER="less -+X"
 ## Direnv
 [[ -x $(command -v direnv) ]] && eval "$(direnv hook zsh)"
-## N
-export N_PREFIX="$HOME/.n"
-[[ -d $N_PREFIX ]] && export PATH="$N_PREFIX/bin:$PATH"
 ## Pyenv
 if [[ -x $(command -v pyenv) ]]; then
     zsh-defer eval "$(pyenv init --path)"
