@@ -1,7 +1,6 @@
 brew "bat"
 brew "direnv"
 brew "exa"
-brew "gh"
 brew "git-delta"
 brew "hugo"
 brew "neovim"

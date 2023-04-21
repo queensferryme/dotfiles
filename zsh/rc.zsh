@@ -51,7 +51,7 @@ zle -N down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 
 # Options
-setopt auto_cd
+setopt AUTO_CD
 ## History
 export SAVEHIST=10000
 setopt EXTENDED_HISTORY
