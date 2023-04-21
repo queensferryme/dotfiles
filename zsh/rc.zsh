@@ -19,15 +19,6 @@ alias lt="ll --level=2 --tree"
 export EDITOR=nvim
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-if [[ -f ~/.proxy ]]; then
-    proxy=`cat ~/.proxy`
-    export ALL_PROXY=$proxy
-    export all_proxy=$proxy
-    export HTTP_PROXY=$proxy
-    export http_proxy=$proxy
-    export HTTPS_PROXY=$proxy
-    export https_proxy=$proxy
-fi
 ## Bat
 export BAT_THEME=OneHalfLight
 ## Delta
